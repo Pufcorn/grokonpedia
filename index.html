@@ -7,5 +7,29 @@
 <body>
     <h1>Bienvenue sur Grokonpedia</h1>
     <p>L’encyclopédie du gros bon sens douteux… en construction.</p>
+ <!-- Début du code Grokon -->
+<div id="grokon-container"></div>
+
+<script>
+  class Grokon {
+    constructor(containerId) {
+      this.container = document.getElementById(containerId);
+      this.init();
+    }
+    init() {
+      const box = document.createElement('div');
+      box.style.border = "1px solid #333";
+      box.style.padding = "10px";
+      box.style.width = "300px";
+      box.style.margin = "10px 0";
+      box.innerHTML = "<strong>Grokon:</strong> Salut! Je suis Grokon, ton p'tit bot.";
+      this.container.appendChild(box);
+    }
+  }
+
+  const grokon = new Grokon('grokon-container');
+</script>
+<!-- Fin du code Grokon -->
+   
 </body>
 </html>
