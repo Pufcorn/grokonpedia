@@ -7,29 +7,62 @@
 <body>
     <h1>Bienvenue sur Grokonpedia</h1>
     <p>L’encyclopédie du gros bon sens douteux… en construction.</p>
- <!-- Début du code Grokon -->
-<div id="grokon-container"></div>
 
-<script>
-  class Grokon {
-    constructor(containerId) {
-      this.container = document.getElementById(containerId);
-      this.init();
-    }
-    init() {
-      const box = document.createElement('div');
-      box.style.border = "1px solid #333";
-      box.style.padding = "10px";
-      box.style.width = "300px";
-      box.style.margin = "10px 0";
-      box.innerHTML = "<strong>Grokon:</strong> Salut! Je suis Grokon, ton p'tit bot.";
-      this.container.appendChild(box);
-    }
-  }
+    <!-- Début du code interactif Grokon -->
+    <div id="grokon-container"></div>
 
-  const grokon = new Grokon('grokon-container');
-</script>
-<!-- Fin du code Grokon -->
-   
+    <script>
+    class Grokon {
+      constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        this.init();
+      }
+      
+      init() {
+        // Boîte Grokon
+        this.box = document.createElement('div');
+        this.box.style.border = "1px solid #333";
+        this.box.style.padding = "10px";
+        this.box.style.width = "300px";
+        this.box.style.margin = "10px 0";
+        this.box.innerHTML = "<strong>Grokon:</strong> Salut! Je suis Grokon, ton p'tit bot.";
+        this.container.appendChild(this.box);
+
+        // Champ pour taper
+        this.input = document.createElement('input');
+        this.input.type = "text";
+        this.input.placeholder = "Écris ici...";
+        this.input.style.width = "200px";
+
+        // Bouton envoyer
+        this.button = document.createElement('button');
+        this.button.textContent = "Envoyer";
+        this.button.onclick = () => this.respond();
+
+        this.container.appendChild(this.input);
+        this.container.appendChild(this.button);
+      }
+
+      respond() {
+        const msg = this.input.value.trim();
+        if(msg === "") return;
+        const reply = document.createElement('div');
+        reply.textContent = "Grokon: " + this.simpleResponse(msg);
+        this.box.appendChild(reply);
+        this.input.value = "";
+      }
+
+      simpleResponse(msg) {
+        if(msg.toLowerCase().includes("salut")) return "Salut toi!";
+        if(msg.toLowerCase().includes("quoi")) return "Rien de spécial!";
+        return "Ouais, je pige pas trop...";
+      }
+    }
+
+    const grokon = new Grokon('grokon-container');
+    </script>
+    <!-- Fin du code interactif Grokon -->
+
 </body>
 </html>
+
