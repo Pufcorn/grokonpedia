@@ -126,15 +126,13 @@
       const msg = input.value.trim().toLowerCase();
       if (msg === "") return;
       appendMessage(msg, "Toi");
-      let found = false;
-      for (const key in reponses) {
-        if (msg.includes(key)) {
-          appendMessage(reponses[key]);
-          found = true;
-          break;
-        }
+
+      if (reponses[msg]) {
+        appendMessage(reponses[msg]);
+      } else {
+        appendMessage("Ouais, je pige pas trop...");
       }
-      if (!found) appendMessage("Ouais, je pige pas trop...");
+
       input.value = "";
     }
 
@@ -145,3 +143,4 @@
   </script>
 </body>
 </html>
+
