@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background-color: #2c2c2c; /* Gray Coal */
+      background-color: #2c2c2c;
       font-family: sans-serif;
       color: #ffffff;
       display: flex;
@@ -43,19 +43,36 @@
       color: #e6e6e6;
     }
 
-    #bot {
+    #bot-container {
       margin-top: 20px;
-      padding: 12px 24px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      cursor: pointer;
-      color: #ffffff;
-      font-weight: bold;
     }
 
-    #bot:hover {
-      background: rgba(255,255,255,0.1);
+    #bot-input {
+      padding: 10px;
+      width: 200px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: #444;
+      color: #fff;
+    }
+
+    #bot-send {
+      padding: 10px 16px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 8px;
+      background: #666;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #bot-send:hover {
+      background: #888;
+    }
+
+    #bot-output {
+      margin-top: 12px;
+      color: #e6e6e6;
     }
 
     footer {
@@ -72,15 +89,30 @@
   <main>
     <div class="grokon-container">
       <h1>Grokon</h1>
-      <button id="bot">Parle au bot</button>
+      <div id="bot-container">
+        <input id="bot-input" type="text" placeholder="Écris ici..." />
+        <button id="bot-send">Envoyer</button>
+        <div id="bot-output"></div>
+      </div>
     </div>
   </main>
   <footer>Parodie de Grokipedia — tout droit réservé à l'humour</footer>
 
   <script>
-    const bot = document.getElementById('bot');
-    bot.addEventListener('click', () => {
-      alert("Salut! Je suis le bot Grokon.");
+    const input = document.getElementById('bot-input');
+    const send = document.getElementById('bot-send');
+    const output = document.getElementById('bot-output');
+
+    send.addEventListener('click', () => {
+      const message = input.value.trim();
+      if (message) {
+        output.innerHTML = "Grokon répond : " + message.split('').reverse().join('');
+        input.value = '';
+      }
+    });
+
+    input.addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') send.click();
     });
   </script>
 </body>
