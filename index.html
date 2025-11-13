@@ -1,68 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Grokonpedia</title>
-</head>
-<body>
-    <h1>Bienvenue sur Grokonpedia</h1>
-    <p>L’encyclopédie du gros bon sens douteux… en construction.</p>
-
-    <!-- Début du code interactif Grokon -->
-    <div id="grokon-container"></div>
-
-    <script>
-    class Grokon {
-      constructor(containerId) {
-        this.container = document.getElementById(containerId);
-        this.init();
-      }
-      
-      init() {
-        // Boîte Grokon
-        this.box = document.createElement('div');
-        this.box.style.border = "1px solid #333";
-        this.box.style.padding = "10px";
-        this.box.style.width = "300px";
-        this.box.style.margin = "10px 0";
-        this.box.innerHTML = "<strong>Grokon:</strong> Salut! Je suis Grokon, ton p'tit bot.";
-        this.container.appendChild(this.box);
-
-        // Champ pour taper
-        this.input = document.createElement('input');
-        this.input.type = "text";
-        this.input.placeholder = "Écris ici...";
-        this.input.style.width = "200px";
-
-        // Bouton envoyer
-        this.button = document.createElement('button');
-        this.button.textContent = "Envoyer";
-        this.button.onclick = () => this.respond();
-
-        this.container.appendChild(this.input);
-        this.container.appendChild(this.button);
-      }
-
-      respond() {
-        const msg = this.input.value.trim();
-        if(msg === "") return;
-        const reply = document.createElement('div');
-        reply.textContent = "Grokon: " + this.simpleResponse(msg);
-        this.box.appendChild(reply);
-        this.input.value = "";
-      }
-
-      simpleResponse(msg) {
-        if(msg.toLowerCase().includes("salut")) return "Salut toi!";
-        if(msg.toLowerCase().includes("quoi")) return "Rien de spécial!";
-        return "Ouais, je pige pas trop...";
-      }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grokon</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #2c2c2c; /* Gray Coal */
+      font-family: sans-serif;
+      color: #ffffff;
     }
 
-    const grokon = new Grokon('grokon-container');
-    </script>
-    <!-- Fin du code interactif Grokon -->
-
+    h1 {
+      font-size: 5rem;
+      text-align: center;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Grokon</h1>
 </body>
 </html>
+
 
