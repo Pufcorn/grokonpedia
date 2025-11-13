@@ -9,14 +9,13 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background-color: #2c2c2c; /* Gray Coal */
+      background-color: #2c2c2c;
       font-family: sans-serif;
       color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
     header {
       width: 100%;
       padding: 20px;
@@ -24,29 +23,28 @@
       font-size: 2rem;
       font-weight: bold;
     }
-
     main {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 100%;
+      flex-direction: column;
     }
-
-    .grokon-container {
-      text-align: center;
-    }
-
     h1 {
       font-size: clamp(40px, 6vw, 88px);
       margin: 0;
       color: #e6e6e6;
+      text-align: center;
     }
-
+    p {
+      text-align: center;
+      max-width: 600px;
+    }
     #grokon-container {
       margin-top: 20px;
+      text-align: center;
     }
-
     input[type="text"] {
       width: 200px;
       padding: 8px;
@@ -54,8 +52,8 @@
       border: 1px solid #555;
       background: #444;
       color: #fff;
+      margin-top: 10px;
     }
-
     button {
       padding: 8px 12px;
       margin-left: 8px;
@@ -65,11 +63,9 @@
       color: #fff;
       cursor: pointer;
     }
-
     button:hover {
       background: #888;
     }
-
     .grokon-box {
       border: 1px solid #333;
       padding: 10px;
@@ -77,24 +73,22 @@
       margin: 10px auto;
       text-align: left;
     }
-
     footer {
       width: 100%;
       padding: 10px;
       text-align: center;
       color: #9b9b9b;
       font-size: 0.85rem;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <header>Grokonpedia</header>
   <main>
-    <div class="grokon-container">
-      <h1>Bienvenue sur Grokonpedia</h1>
-      <p>L’encyclopédie du gros bon sens douteux… en construction.</p>
-      <div id="grokon-container"></div>
-    </div>
+    <h1>Bienvenue sur Grokonpedia</h1>
+    <p>L’encyclopédie du gros bon sens douteux… en construction.</p>
+    <div id="grokon-container"></div>
   </main>
   <footer>Parodie de Grokipedia — tout droit réservé à l'humour</footer>
 
@@ -102,22 +96,41 @@
     class Grokon {
       constructor(containerId) {
         this.container = document.getElementById(containerId);
+        this.responses = [
+          {q: "Aujourd’hui nous sommes?", a: "Aujourd’hui! La réponse est dans la question."},
+          {q: "Tu es prêts?", a: "Non mais oui!"},
+          {q: "Que cherches-tu?", a: "Moi?"},
+          {q: "Je suis ici pour t’aider, tu désire?", a: "Non, je ne suis pas une banque..."},
+          {q: "Pourquoi les nuages ne portent-ils pas de chaussures?", a: "Parce qu’ils flottent, pas qu’ils marchent."},
+          {q: "Les fourmis font-elles du yoga?", a: "Oui, mais seulement quand personne ne regarde."},
+          {q: "Peut-on téléphoner à un arbre?", a: "Oui, mais il risque de répondre 'pas de signal'."},
+          {q: "Pourquoi le soleil ne se couche jamais triste?", a: "Parce qu’il sait qu’il va se lever demain."},
+          {q: "Est-ce que les poissons aiment le disco?", a: "Seulement quand la lumière fait des vagues."},
+          {q: "Peut-on mettre un chapeau sur une montagne?", a: "Oui, mais elle risque de se vexer."},
+          {q: "Pourquoi les étoiles ne tombent-elles jamais dans ta soupe?", a: "Parce qu’elles savent qu’elles n’ont pas de cuillère."},
+          {q: "Les grenouilles lisent-elles des romans?", a: "Oui, mais seulement les histoires qui sautent de page en page."},
+          {q: "Peut-on apprendre à un nuage à chanter?", a: "Oui, mais il faut un chef d’orchestre en parapluie."},
+          {q: "Pourquoi les pierres ne jouent-elles jamais au football?", a: "Parce qu’elles se blesseraient aux pieds."},
+          {q: "Les poissons utilisent-ils des lunettes de soleil?", a: "Seulement quand ils font du snorkeling sous-marin."},
+          {q: "Peut-on mettre du ketchup sur la neige?", a: "Oui, mais les bonhommes de neige risquent de rougir."},
+          {q: "Pourquoi les horloges n’aiment pas les montgolfières?", a: "Parce qu’elles perdent la notion du temps en altitude."},
+          {q: "Les cactus dansent-ils quand personne ne regarde?", a: "Oui, mais ils piquent un peu leurs voisins."},
+          {q: "Peut-on faire des omelettes avec des nuages?", a: "Oui, mais il faut un bon vent pour battre les blancs."},
+          {q: "Pourquoi les bibliothèques ne volent-elles jamais?", a: "Parce qu’elles ont trop de livres lourds à porter."}
+        ];
         this.init();
       }
 
       init() {
-        // Boîte Grokon
         this.box = document.createElement('div');
         this.box.className = 'grokon-box';
         this.box.innerHTML = "<strong>Grokon:</strong> Salut! Je suis Grokon, ton p'tit bot.";
         this.container.appendChild(this.box);
 
-        // Champ pour taper
         this.input = document.createElement('input');
         this.input.type = 'text';
         this.input.placeholder = "Écris ici...";
 
-        // Bouton envoyer
         this.button = document.createElement('button');
         this.button.textContent = "Envoyer";
         this.button.onclick = () => this.respond();
@@ -131,16 +144,11 @@
         if(msg === "") return;
 
         const reply = document.createElement('div');
-        reply.textContent = "Grokon: " + this.simpleResponse(msg);
+        const lower = msg.toLowerCase();
+        const found = this.responses.find(r => lower.includes(r.q.toLowerCase()));
+        reply.textContent = "Grokon: " + (found ? found.a : "Ouais, je pige pas trop...");
         this.box.appendChild(reply);
-
         this.input.value = "";
-      }
-
-      simpleResponse(msg) {
-        if(msg.toLowerCase().includes("salut")) return "Salut toi!";
-        if(msg.toLowerCase().includes("quoi")) return "Rien de spécial!";
-        return "Ouais, je pige pas trop...";
       }
     }
 
