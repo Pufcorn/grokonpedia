@@ -1,31 +1,87 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Grokon</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grokonpedia</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 0;
+      min-height: 100vh;
       background-color: #2c2c2c; /* Gray Coal */
       font-family: sans-serif;
       color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .grokon-container {
+      text-align: center;
     }
 
     h1 {
-      font-size: 5rem;
-      text-align: center;
+      font-size: clamp(40px, 6vw, 88px);
       margin: 0;
+      color: #e6e6e6;
+    }
+
+    #bot {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      cursor: pointer;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    #bot:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    footer {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      color: #9b9b9b;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
-  <h1>Grokon</h1>
+  <header>Grokonpedia</header>
+  <main>
+    <div class="grokon-container">
+      <h1>Grokon</h1>
+      <button id="bot">Parle au bot</button>
+    </div>
+  </main>
+  <footer>Parodie de Grokipedia — tout droit réservé à l'humour</footer>
+
+  <script>
+    const bot = document.getElementById('bot');
+    bot.addEventListener('click', () => {
+      alert("Salut! Je suis le bot Grokon.");
+    });
+  </script>
 </body>
 </html>
-
-
