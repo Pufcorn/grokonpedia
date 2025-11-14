@@ -1,6 +1,6 @@
 # A
 
-Première lettre de l’alphabet.  
+ Première lettre de l’alphabet.  
 Elle précède souvent un éternuement. EX : Atchouuuu!!!  
 S’agence bien avec un bâillement d’ennui ou de fatigue.
 
