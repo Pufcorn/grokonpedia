@@ -1,68 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Grokonpedia – Lecture</title>
-  <style>
+<meta charset="UTF-8">
+<title>Grokonpedia – Lettre</title>
+<style>
     body {
-      background-color: #2b2b2b;
-      color: #fff;
-      font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
+        background: #333;
+        color: #fff;
+        font-family: sans-serif;
+        margin: 20px;
+        line-height: 1.4;
     }
+
     #content {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.2;
-      color: #fff;
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background: #444;
+        border-radius: 10px;
     }
-    b {
-      display:inline;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
     }
-    br {
-      margin-bottom: 2px;
+
+    .word {
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-top: 20px;
+        margin-bottom: 5px;
     }
-  </style>
+
+    .definition {
+        margin-left: 10px;
+        margin-bottom: 15px;
+    }
+</style>
 </head>
 <body>
-  <div id="content">Chargement…</div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get("f");
+<div id="content">Chargement…</div>
 
-    fetch(file + ".md")
-      .then(r => r.text())
-      .then(md => {
-        let lines = md.split('\n');
+<script>
+// Obtenir la lettre (f=A ou B ou Z…)
+const params = new URLSearchParams(window.location.search);
+const file = params.get('f');
 
-        // Supprimer "Conversion Markdown" et la lettre en haut
-        while(lines.length && (lines[0].trim().toLowerCase() === "conversion markdown" || lines[0].trim().toUpperCase() === file.toUpperCase())) {
-          lines.shift();
+if (!file) {
+    document.getElementById('content').innerHTML = "Erreur : aucune lettre reçue.";
+}
+
+// Charger le fichier Markdown
+fetch(`${file}.md`)
+    .then(r => r.text())
+    .then(txt => {
+        // Nettoyer
+        txt = txt.replace(/^[#]+/gm, "");       // Enlève les #
+        txt = txt.replace(/Conversion Markdown/gi, ""); // Débarrasse du titre de marde
+
+        const lines = txt.split(/\n+/);
+
+        let html = "";
+
+        // Le premier élément, c'est la lettre → titre
+        const letter = lines.shift().trim();
+        html += `<h1>${letter}</h1>`;
+
+        // Pour chaque bloc mot + définition
+        for (let i = 0; i < lines.length; i++) {
+
+            const line = lines[i].trim();
+
+            // Mot (ligne qui n’a pas de point)
+            if (line && !line.match(/^v\.|^n\.|^adj\.|^Expr\.|EX|—/)) {
+                html += `<div class="word">${line}</div>`;
+            }
+            else if (line) {
+                html += `<div class="definition">${line}</div>`;
+            }
         }
 
-        // Regrouper les lignes en paragraphes
-        let paragraphs = [];
-        let buffer = "";
-        lines.forEach(line => {
-          if(line.trim() === "") {
-            if(buffer.trim() !== "") paragraphs.push(buffer.trim());
-            buffer = "";
-          } else {
-            if(buffer !== "") buffer += " ";
-            buffer += line.trim();
-          }
-        });
-        if(buffer.trim() !== "") paragraphs.push(buffer.trim());
-
-        // Convertir chaque paragraphe en HTML
-        const html = paragraphs.map(p => {
-          return p.replace(/^([A-Z][^\s–]+)\s?–/, '<b>$1</b> –');
-        }).join('<br><br>');
-
         document.getElementById("content").innerHTML = html;
-      });
-  </script>
+    })
+    .catch(err => {
+        document.getElementById('content').innerHTML = "Erreur de chargement.";
+    });
+</script>
+
 </body>
 </html>
