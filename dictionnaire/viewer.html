@@ -13,20 +13,32 @@
   <div id="content">Chargement…</div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const file = params.get("f");
-    fetch(file + ".md")
-      .then(r => r.text())
-      .then(md => {
-        const html = md
-          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-          .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
-          .replace(/\*(.*)\*/gim, '<i>$1</i>')
-          .replace(/\n$/gim, '<br />');
-        document.getElementById("content").innerHTML = html;
-      });
-  </script>
+const params = new URLSearchParams(window.location.search);
+const file = params.get("f");
+fetch(file + ".md")
+  .then(r => r.text())
+  .then(md => {
+    let lines = md.split('\n');
+
+    // Supprimer la première ligne si c'est "Conversion Markdown"
+    if(lines[0].trim() === "Conversion Markdown") lines.shift();
+
+    // Supprimer la deuxième ligne si c'est juste la lettre
+    if(lines[0].trim() === file) lines.shift();
+
+    const cleanMd = lines.join('\n');
+
+    const html = cleanMd
+      .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+      .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+      .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+      .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
+      .replace(/\*(.*)\*/gim, '<i>$1</i>')
+      .replace(/\n/gim, '<br />');
+
+    document.getElementById("content").innerHTML = html;
+  });
+</script>
+
 </body>
 </html>
