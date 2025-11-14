@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grokonpedia – Lecture</title>
+  <style>
+    body { background:#2b2b2b; color:#fff; font-family:sans-serif; padding:20px; }
+    #content { max-width:800px; margin:auto; }
+    a { color:#ff0; }
+  </style>
+</head>
+<body>
+  <div id="content">Chargement…</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("f");
+    fetch(file + ".md")
+      .then(r => r.text())
+      .then(md => {
+        const html = md
+          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+          .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
+          .replace(/\*(.*)\*/gim, '<i>$1</i>')
+          .replace(/\n$/gim, '<br />');
+        document.getElementById("content").innerHTML = html;
+      });
+  </script>
+</body>
+</html>
