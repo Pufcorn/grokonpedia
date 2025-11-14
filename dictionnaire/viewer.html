@@ -2,86 +2,68 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Dictionnaire Grokonpedia</title>
+  <title>Grokonpedia – Lecture</title>
   <style>
     body {
       background-color: #2b2b2b;
       color: #fff;
       font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       margin: 0;
       padding: 20px;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 30px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-    li {
-      background: #444;
-      padding: 15px 20px;
-      border-radius: 10px;
-      transition: background 0.2s;
-    }
-    li:hover {
-      background: #666;
-    }
-    a {
+    #content {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.2; /* rapproche les lignes */
       color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
     }
-    a:hover {
-      text-decoration: underline;
+    b {
+      display:inline; /* mot en gras, collé à la définition */
     }
-    .back-link {
-      margin-top: 30px;
-      font-size: 1rem;
+    br {
+      margin-bottom: 2px; /* espace minimal entre lignes */
     }
   </style>
 </head>
 <body>
-  <h1>Dictionnaire Grokonpedia</h1>
-  <ul>
-    <li><a href="viewer.html?f=A">A</a></li>
-    <li><a href="viewer.html?f=B">B</a></li>
-    <li><a href="viewer.html?f=C">C</a></li>
-    <li><a href="viewer.html?f=D">D</a></li>
-    <li><a href="viewer.html?f=E">E</a></li>
-    <li><a href="viewer.html?f=F">F</a></li>
-    <li><a href="viewer.html?f=G">G</a></li>
-    <li><a href="viewer.html?f=H">H</a></li>
-    <li><a href="viewer.html?f=I">I</a></li>
-    <li><a href="viewer.html?f=J">J</a></li>
-    <li><a href="viewer.html?f=K">K</a></li>
-    <li><a href="viewer.html?f=L">L</a></li>
-    <li><a href="viewer.html?f=M">M</a></li>
-    <li><a href="viewer.html?f=N">N</a></li>
-    <li><a href="viewer.html?f=O">O</a></li>
-    <li><a href="viewer.html?f=P">P</a></li>
-    <li><a href="viewer.html?f=Q">Q</a></li>
-    <li><a href="viewer.html?f=R">R</a></li>
-    <li><a href="viewer.html?f=S">S</a></li>
-    <li><a href="viewer.html?f=T">T</a></li>
-    <li><a href="viewer.html?f=U">U</a></li>
-    <li><a href="viewer.html?f=V">V</a></li>
-    <li><a href="viewer.html?f=W">W</a></li>
-    <li><a href="viewer.html?f=X">X</a></li>
-    <li><a href="viewer.html?f=Y">Y</a></li>
-    <li><a href="viewer.html?f=Z">Z</a></li>
-  </ul>
-  <div class="back-link">
-    <a href="../index.html">← Retour à l'accueil</a>
-  </div>
+  <div id="content">Chargement…</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("f");
+
+    fetch(file + ".md")
+      .then(r => r.text())
+      .then(md => {
+        let lines = md.split('\n');
+
+        // Supprimer "Conversion Markdown" et la lettre en haut
+        while(lines.length && (lines[0].trim().toLowerCase() === "conversion markdown" || lines[0].trim().toUpperCase() === file.toUpperCase())) {
+          lines.shift();
+        }
+
+        // Regrouper les lignes en paragraphes
+        let paragraphs = [];
+        let buffer = "";
+        lines.forEach(line => {
+          if(line.trim() === "") {
+            if(buffer.trim() !== "") paragraphs.push(buffer.trim());
+            buffer = "";
+          } else {
+            if(buffer !== "") buffer += " ";
+            buffer += line.trim();
+          }
+        });
+        if(buffer.trim() !== "") paragraphs.push(buffer.trim());
+
+        // Convertir chaque paragraphe en HTML
+        const html = paragraphs.map(p => {
+          // Met le mot en gras si c'est le début d'une définition
+          return p.replace(/^([A-Z][^\s–]+)\s?–/, '<b>$1</b> –');
+        }).join('<br><br>');
+
+        document.getElementById("content").innerHTML = html;
+      });
+  </script>
 </body>
 </html>
