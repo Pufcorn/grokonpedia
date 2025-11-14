@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Grokonpedia – Lettre</title>
+<title>Grokonpedia – Lecture</title>
 <style>
     body {
         background: #333;
@@ -11,7 +11,6 @@
         margin: 20px;
         line-height: 1.4;
     }
-
     #content {
         max-width: 800px;
         margin: auto;
@@ -19,20 +18,17 @@
         background: #444;
         border-radius: 10px;
     }
-
     h1 {
         text-align: center;
         margin-bottom: 30px;
         font-size: 2em;
     }
-
     .word {
         font-weight: bold;
         font-size: 1.3em;
-        margin-top: 20px;
+        margin-top: 15px;
         margin-bottom: 5px;
     }
-
     .definition {
         margin-left: 10px;
         margin-bottom: 15px;
@@ -44,7 +40,6 @@
 <div id="content">Chargement…</div>
 
 <script>
-// Obtenir la lettre (f=A ou B ou Z…)
 const params = new URLSearchParams(window.location.search);
 const file = params.get('f');
 
@@ -52,35 +47,36 @@ if (!file) {
     document.getElementById('content').innerHTML = "Erreur : aucune lettre reçue.";
 }
 
-// Charger le fichier Markdown
 fetch(`${file}.md`)
     .then(r => r.text())
     .then(txt => {
-        // Nettoyer
-        txt = txt.replace(/^[#]+/gm, "");       // Enlève les #
-        txt = txt.replace(/Conversion Markdown/gi, ""); // Débarrasse du titre de marde
+        // Nettoyage automatique Markdown
+        txt = txt.replace(/^#.*$/gm, ""); // Supprime toutes les lignes de titre
+        txt = txt.replace(/^#+\s*/gm, ""); // Supprime les ### devant les mots
+        txt = txt.replace(/Conversion Markdown/gi, ""); // Supprime Conversion Markdown
 
         const lines = txt.split(/\n+/);
 
         let html = "";
 
-        // Le premier élément, c'est la lettre → titre
-        const letter = lines.shift().trim();
-        html += `<h1>${letter}</h1>`;
+        // La première ligne non vide → lettre
+        let letter = lines.find(l => l.trim() !== "");
+        html += `<h1>${letter.trim()}</h1>`;
 
-        // Pour chaque bloc mot + définition
-        for (let i = 0; i < lines.length; i++) {
+        // Supprime cette ligne de l’array
+        const startIndex = lines.indexOf(letter);
+        const contentLines = lines.slice(startIndex + 1);
 
-            const line = lines[i].trim();
-
-            // Mot (ligne qui n’a pas de point)
-            if (line && !line.match(/^v\.|^n\.|^adj\.|^Expr\.|EX|—/)) {
+        contentLines.forEach(line => {
+            line = line.trim();
+            if (!line) return;
+            // Si ligne commence par "v.", "n.", "adj.", "Expr.", "EX" ou "—", c'est une définition
+            if (/^(v\.|n\.|adj\.|Expr\.|EX|—)/.test(line)) {
+                html += `<div class="definition">${line}</div>`;
+            } else {
                 html += `<div class="word">${line}</div>`;
             }
-            else if (line) {
-                html += `<div class="definition">${line}</div>`;
-            }
-        }
+        });
 
         document.getElementById("content").innerHTML = html;
     })
