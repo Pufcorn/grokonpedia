@@ -14,14 +14,14 @@
     #content {
       max-width: 800px;
       margin: auto;
-      line-height: 1.2; /* rapproche les lignes */
+      line-height: 1.2;
       color: #fff;
     }
     b {
-      display:inline; /* mot en gras, collé à la définition */
+      display:inline;
     }
     br {
-      margin-bottom: 2px; /* espace minimal entre lignes */
+      margin-bottom: 2px;
     }
   </style>
 </head>
@@ -58,7 +58,6 @@
 
         // Convertir chaque paragraphe en HTML
         const html = paragraphs.map(p => {
-          // Met le mot en gras si c'est le début d'une définition
           return p.replace(/^([A-Z][^\s–]+)\s?–/, '<b>$1</b> –');
         }).join('<br><br>');
 
