@@ -1,10 +1,10 @@
-# A
+ A
 
  Première lettre de l’alphabet.  
 Elle précède souvent un éternuement. EX : Atchouuuu!!!  
 S’agence bien avec un bâillement d’ennui ou de fatigue.
 
-- **Abitibi** — Région mythique faite de marécages, de bibittes, de bouette pis d’opinions tranchantes.
+- Abitibi — Région mythique faite de marécages, de bibittes, de bouette pis d’opinions tranchantes.
 - **Abrier** — Couvrir ou protéger du froid, souvent de façon exagérée. EX : Abrier la piscine pour l’hiver… en août.
 - **Achaler** — Énerver, déranger, gosser quelqu’un jusqu’à ce qu’il sacre.
 - **Accroire** — Mensonge que l’on croit dur comme fer. Se faire des accroires : croire à ses propres mensonges.
