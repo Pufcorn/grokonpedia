@@ -57,21 +57,5 @@ Astiner
 v. tr. — Taquiner, pousser jusqu’à en devenir insistant.
 
 Atoca
-n. m. — Canneberge sauvage du Québec, souvent utilisée dans les recettes traditionnelles.
+n. m. — Canneberge sauvage du Québec, souvent utilisée dans les recettes traditionnell
 
-Attif
-n. m. — Tenue vestimentaire ou accoutrement, souvent jugé exagérée ou mal assorti.
-
-Avachir
-v. tr. ou pronom. — Ramollir ou perdre son énergie, s’affaisser.
-EX : « Après souper, y s’est avachi dans le divan. »
-
-Avaler sa gomme
-v. intr. — Se retrouver surpris au point de plus savoir quoi dire ou faire.
-
-Aviner
-v. tr. — Imprégner d’alcool ou enivrer.
-EX : « Y s’est aviné ben avant l’party. »
-
-Avitailleux / Avitailleuse
-n. — Celui ou celle qui s’empresse de remplir les provisions, souvent à l’excès.
