@@ -4,35 +4,11 @@
 <meta charset="UTF-8">
 <title>Grokonpedia – Lecture</title>
 <style>
-    body {
-        background: #333;
-        color: #fff;
-        font-family: sans-serif;
-        margin: 20px;
-        line-height: 1.4;
-    }
-    #content {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-        background: #444;
-        border-radius: 10px;
-    }
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-        font-size: 2em;
-    }
-    .word {
-        font-weight: bold;
-        font-size: 1.3em;
-        margin-top: 15px;
-        margin-bottom: 5px;
-    }
-    .definition {
-        margin-left: 10px;
-        margin-bottom: 15px;
-    }
+body { background:#333; color:#fff; font-family:sans-serif; margin:20px; line-height:1.5; }
+#content { max-width:800px; margin:auto; padding:20px; background:#444; border-radius:10px; white-space: pre-wrap; }
+h1 { text-align:center; margin-bottom:20px; font-size:2em; }
+.word { font-weight:bold; margin-top:15px; }
+.definition { margin-left:10px; margin-bottom:15px; }
 </style>
 </head>
 <body>
@@ -42,47 +18,30 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const file = params.get('f');
-
-if (!file) {
-    document.getElementById('content').innerHTML = "Erreur : aucune lettre reçue.";
-}
+if(!file){ document.getElementById('content').innerText="Erreur : aucune lettre reçue."; }
 
 fetch(`${file}.md`)
-    .then(r => r.text())
-    .then(txt => {
-        // Nettoyage automatique Markdown
-        txt = txt.replace(/^#.*$/gm, ""); // Supprime toutes les lignes de titre
-        txt = txt.replace(/^#+\s*/gm, ""); // Supprime les ### devant les mots
-        txt = txt.replace(/Conversion Markdown/gi, ""); // Supprime Conversion Markdown
+.then(r=>r.text())
+.then(txt=>{
+    const lines = txt.split(/\n+/).map(l=>l.trimEnd()).filter(l=>l);
 
-        const lines = txt.split(/\n+/);
+    if(lines.length===0){ document.getElementById('content').innerText="Fichier vide."; return; }
 
-        let html = "";
+    const letter = lines.shift();
+    let html = `<h1>${letter}</h1>`;
+    let currentWord = null;
 
-        // La première ligne non vide → lettre
-        let letter = lines.find(l => l.trim() !== "");
-        html += `<h1>${letter.trim()}</h1>`;
-
-        // Supprime cette ligne de l’array
-        const startIndex = lines.indexOf(letter);
-        const contentLines = lines.slice(startIndex + 1);
-
-        contentLines.forEach(line => {
-            line = line.trim();
-            if (!line) return;
-            // Si ligne commence par "v.", "n.", "adj.", "Expr.", "EX" ou "—", c'est une définition
-            if (/^(v\.|n\.|adj\.|Expr\.|EX|—)/.test(line)) {
-                html += `<div class="definition">${line}</div>`;
-            } else {
-                html += `<div class="word">${line}</div>`;
-            }
-        });
-
-        document.getElementById("content").innerHTML = html;
-    })
-    .catch(err => {
-        document.getElementById('content').innerHTML = "Erreur de chargement.";
+    lines.forEach(line=>{
+        if (/^(v\.|n\.|adj\.|Expr\.|EX|—)/.test(line)) {
+            html += `<div class="definition">${line}</div>`;
+        } else {
+            html += `<div class="word">${line}</div>`;
+        }
     });
+
+    document.getElementById('content').innerHTML = html;
+})
+.catch(err=>{ document.getElementById('content').innerText="Erreur de chargement."; });
 </script>
 
 </body>
