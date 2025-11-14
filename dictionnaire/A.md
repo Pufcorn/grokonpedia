@@ -1,113 +1,79 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>Dictionnaire Grokonpedia - A</title>
-<style>
-    body {
-        background-color: #333333; /* gris foncé */
-        color: #ffffff; /* texte blanc */
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        line-height: 1.5;
-    }
-    h1 {
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    h2 {
-        font-weight: bold;
-        margin-top: 20px;
-        margin-bottom: 5px;
-    }
-    p, ul {
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-    ul {
-        padding-left: 20px;
-    }
-</style>
-</head>
-<body>
+# A
 
-<h1>A</h1>
+Première lettre de l’alphabet.  
+Elle précède souvent un éternuement. EX : Atchouuuu!!!  
+S’agence bien avec un bâillement d’ennui ou de fatigue.
 
-<p>Première lettre de l’alphabet. Elle précède souvent un éternuement. EX : Atchouuuu!!! S’agence bien avec un bâillement d’ennui ou de fatigue.</p>
+## Abitibi
+- n. f. — Région mythique faite de marécages, de bibittes, de bouette pis d’opinions tranchantes.
 
-<h2>Abitibi</h2>
-<p>n. f. — Région mythique faite de marécages, de bibittes, de bouette pis d’opinions tranchantes.</p>
+## Abrier
+- v. tr. — Couvrir ou protéger du froid, souvent de façon exagérée.  
+EX : Abrier la piscine pour l’hiver… en août.
 
-<h2>Abrier</h2>
-<p>v. tr. — Couvrir ou protéger du froid, souvent de façon exagérée.<br>
-EX : Abrier la piscine pour l’hiver… en août.</p>
+## Achaler
+- v. tr. — Énerver, déranger, gosser quelqu’un jusqu’à ce qu’il sacre.
 
-<h2>Achaler</h2>
-<p>v. tr. — Énerver, déranger, gosser quelqu’un jusqu’à ce qu’il sacre.</p>
+## Accroire
+- v. tr. — Mensonge que l’on croit dur comme fer.  
+Se faire des accroires : croire à ses propres mensonges.
 
-<h2>Accroire</h2>
-<p>v. tr. — Mensonge que l’on croit dur comme fer.<br>
-Se faire des accroires : croire à ses propres mensonges.</p>
+## Adon
+- n. m. — Temps bien synchronisé, quelque chose qui se passe au bon moment.  
+EX : « Tu es aux deux ? Ahhh ? Moi aussi, je suis aux petites et grandes femmes. Tout un adon! »
 
-<h2>Adon</h2>
-<p>n. m. — Temps bien synchronisé, quelque chose qui se passe au bon moment.<br>
-EX : « Tu es aux deux ? Ahhh ? Moi aussi, je suis aux petites et grandes femmes. Tout un adon! »</p>
+## Agace (-pissette)
+- n. — Individu dont l’importunité équivaut à celle de l’industrie des notices légales.  
+EX : « À matin y’avait tout un gang d’agaces-pisettes devant la porte du Costco. »
 
-<h2>Agace (-pissette)</h2>
-<p>n. — Individu dont l’importunité équivaut à celle de l’industrie des notices légales.<br>
-EX : « À matin y’avait tout un gang d’agaces-pisettes devant la porte du Costco. »</p>
+## Aiguiser
+- v. tr. — Rendre plus tranchant, ou préparer quelqu’un à réagir, souvent avec une remarque bien placée.
 
-<h2>Aiguiser</h2>
-<p>v. tr. — Rendre plus tranchant, ou préparer quelqu’un à réagir, souvent avec une remarque bien placée.</p>
+## Aimailler
+- v. tr. — Orner ou décorer grossièrement, parfois avec excès.
 
-<h2>Aimailler</h2>
-<p>v. tr. — Orner ou décorer grossièrement, parfois avec excès.</p>
+## Amasseux / Amasseuse
+- n. — Personne qui ramasse tout pis n’importe quoi, souvent pour rien.  
+EX : « C’est pas un collectionneur… c’est un amasseux de cochonneries! »
 
-<h2>Amasseux / Amasseuse</h2>
-<p>n. — Personne qui ramasse tout pis n’importe quoi, souvent pour rien.<br>
-EX : « C’est pas un collectionneur… c’est un amasseux de cochonneries! »</p>
+## Amarrer
+- v. tr. — Attacher solidement, ou figer quelqu’un dans une situation.  
+EX : « Amarre ta chaloupe, le vent pogne! »
 
-<h2>Amarrer</h2>
-<p>v. tr. — Attacher solidement, ou figer quelqu’un dans une situation.<br>
-EX : « Amarre ta chaloupe, le vent pogne! »</p>
+## Aplaventristiquement
+- adv. — Façon d’agir ou d’échouer qui implique de se péter la gueule avec classe.  
+EX : « Y’a sauté du divan aplaventristiquement comme un castor qui s’enfarge dans sa queue. »
 
-<h2>Aplaventristiquement</h2>
-<p>adv. — Façon d’agir ou d’échouer qui implique de se péter la gueule avec classe.<br>
-EX : « Y’a sauté du divan aplaventristiquement comme un castor qui s’enfarge dans sa queue. »</p>
+## Apparater
+- v. tr. — Monter ou assembler rapidement quelque chose, souvent de bric et de broc.
 
-<h2>Apparater</h2>
-<p>v. tr. — Monter ou assembler rapidement quelque chose, souvent de bric et de broc.</p>
+## Apoitre
+- n. m. — Personne maladroite ou niaiseuse dans ses gestes.
 
-<h2>Apoitre</h2>
-<p>n. m. — Personne maladroite ou niaiseuse dans ses gestes.</p>
+## Asecouer
+- v. tr. — Secouer énergiquement, que ce soit un objet ou quelqu’un.  
+EX : « Asecoue-toi un peu, t’es dans la lune! »
 
-<h2>Asecouer</h2>
-<p>v. tr. — Secouer énergiquement, que ce soit un objet ou quelqu’un.<br>
-EX : « Asecoue-toi un peu, t’es dans la lune! »</p>
+## Astiner
+- v. tr. — Taquiner, pousser jusqu’à en devenir insistant.
 
-<h2>Astiner</h2>
-<p>v. tr. — Taquiner, pousser jusqu’à en devenir insistant.</p>
+## Atoca
+- n. m. — Canneberge sauvage du Québec, souvent utilisée dans les recettes traditionnelles.
 
-<h2>Atoca</h2>
-<p>n. m. — Canneberge sauvage du Québec, souvent utilisée dans les recettes traditionnelles.</p>
+## Attif
+- n. m. — Tenue vestimentaire ou accoutrement, souvent jugé exagérée ou mal assorti.
 
-<h2>Attif</h2>
-<p>n. m. — Tenue vestimentaire ou accoutrement, souvent jugé exagérée ou mal assorti.</p>
+## Avachir
+- v. tr. ou pronom. — Ramollir ou perdre son énergie, s’affaisser.  
+EX : « Après souper, y s’est avachi dans le divan. »
 
-<h2>Avachir</h2>
-<p>v. tr. ou pronom. — Ramollir ou perdre son énergie, s’affaisser.<br>
-EX : « Après souper, y s’est avachi dans le divan. »</p>
+## Avaler sa gomme
+- v. intr. — Se retrouver surpris au point de plus savoir quoi dire ou faire.
 
-<h2>Avaler sa gomme</h2>
-<p>v. intr. — Se retrouver surpris au point de plus savoir quoi dire ou faire.</p>
+## Aviner
+- v. tr. — Imprégner d’alcool ou enivrer.  
+EX : « Y s’est aviné ben avant l’party. »
 
-<h2>Aviner</h2>
-<p>v. tr. — Imprégner d’alcool ou enivrer.<br>
-EX : « Y s’est aviné ben avant l’party. »</p>
+## Avitailleux / Avitailleuse
+- n. — Celui ou celle qui s’empresse de remplir les provisions, souvent à l’excès.
 
-<h2>Avitailleux / Avitailleuse</h2>
-<p>n. — Celui ou celle qui s’empresse de remplir les provisions, souvent à l’excès.</p>
-
-</body>
-</html>
