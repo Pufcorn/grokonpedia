@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Grokonpedia – Lecture</title>
   <style>
-   #content {
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.2; /* rapproche les lignes */
-}
-
+    body {
+      background-color: #2b2b2b;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #content {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.2; /* rapproche les lignes */
+      color: #fff;
+    }
+    h1, h2, h3 {
+      margin: 0 0 5px 0; /* pas de grand espace avant/après */
+    }
+    b {
+      display:block; /* force le mot à être sur sa propre ligne */
+    }
+    br {
+      margin-bottom: 2px; /* réduit l’espace entre lignes */
+    }
   </style>
 </head>
 <body>
   <div id="content">Chargement…</div>
 
- <script>
-const params = new URLSearchParams(window.location.search);
-const file = params.get("f");
-fetch(file + ".md")
-  .then(r => r.text())
-  .then(md => {
-    let lines = md.split('\n');
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get("f");
+    fetch(file + ".md")
+      .then(r => r.text())
+      .then(md => {
+        let lines = md.split('\n');
 
-    // Supprimer la première ligne si c'est "Conversion Markdown"
-    if(lines[0].trim().toLowerCase() === "conversion markdown") lines.shift();
+        // Supprimer la première ligne si c'est "Conversion Markdown"
+        if(lines[0].trim().toLowerCase() === "conversion markdown") lines.shift();
 
-    // Supprimer la deuxième ligne si c'est juste la lettre
-    if(lines[0].trim().toUpperCase() === file.toUpperCase()) lines.shift();
+        // Supprimer la ligne si c'est juste la lettre
+        if(lines[0].trim().toUpperCase() === file.toUpperCase()) lines.shift();
 
-    const cleanMd = lines.join('\n');
+        const cleanMd = lines.join('\n');
 
-    const html = cleanMd
-      .replace(/^# (.*$)/gim, '<h1 style="margin-top:0;">$1</h1>')
-      .replace(/^## (.*$)/gim, '<h2 style="margin-top:0;">$1</h2>')
-      .replace(/^### (.*$)/gim, '<h3 style="margin-top:0;">$1</h3>')
-      .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
-      .replace(/\*(.*)\*/gim, '<i>$1</i>')
-      .replace(/\n/gim, '<br />');
+        // Conversion minimale Markdown -> HTML
+        const html = cleanMd
+          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+          .replace(/^([A-Z][^\n]+)\n/gm, '<b>$1</b><br>') // met le mot en gras
+          .replace(/\*\*(.*)\*\*/gim, '<b>$1</b>')
+          .replace(/\*(.*)\*/gim, '<i>$1</i>')
+          .replace(/\n/gim, '<br>');
 
-    document.getElementById("content").innerHTML = html;
-  });
-</script>
-
+        document.getElementById("content").innerHTML = html;
+      });
+  </script>
 </body>
 </html>
