@@ -1,27 +1,12 @@
-# Conversion Markdown
-
-### I
+I
 
 Neuvième lettre de l’alphabet.
-Cris strident d’une demoiselle en peur ou d’un homme avec les couilles
-coincées ^^
+Cris strident d’une demoiselle en peur ou d’un homme avec les couilles coincées ^^
 
-### Icitte
+Icitte - Endroit présent, équivalent de “ici”. EX : « Drette icitte ! »
 
-adv. — Endroit présent, équivalent de “ici”.
-EX : « Drette icitte ! »
+Initialer - Apposer ses initiales sur un document. EX : « J’initiale la facture pour prouver mon paiement. »
 
-### Initialer
+Insécure - Tiré de l’anglais “secure”; désigne une insécurité ou quelque chose d’instable.
 
-v. — Apposer ses initiales sur un document.
-EX : « J’initiale la facture pour prouver mon paiement. »
-
-### Insécure
-
-adj. — Tiré de l’anglais “secure”; désigne une insécurité ou quelque
-chose d’instable.
-
-### Itoo
-
-adv. — Du vieux français, signifie « pareillement, aussi, de même ».
-EX : « Moi itoo, j’en veux plus encore ! »
+Itoo - Du vieux français, signifie « pareillement, aussi, de même ». EX : « Moi itoo, j’en veux plus encore ! »
