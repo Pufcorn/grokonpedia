@@ -1,23 +1,11 @@
-# Conversion Markdown
+L
 
-### L
+Douzième lettre de l’alphabet. Elle suit la précédente et précède la prochaine. ^^
 
-Douzième lettre de l’alphabet.
-Elle suit la précédente et précède la prochaine. ^^
+Lâche - Personne paresseuse à l’excès, un bon à rien.
 
-### Lâche
+Laite - Chose laide; petite déformation du mot.
 
-n. m. — Personne paresseuse à l’excès, un bon à rien.
+Laveuse - Machine à laver le linge; souvent dite laveuse-essoreuse.
 
-### Laite
-
-adj. — Chose laide; petite déformation du mot.
-
-### Laveuse
-
-n. f. — Machine à laver le linge; souvent dite laveuse-essoreuse.
-
-### Lichage
-
-n. m. — Action de flatter une personne à l’excès, “téteux”.
-EX : Voir aussi dans les « T ».
+Lichage - Action de flatter une personne à l’excès, “téteux”. EX : Voir aussi dans les « T ».
