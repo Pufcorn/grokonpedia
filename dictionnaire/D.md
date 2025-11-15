@@ -1,67 +1,27 @@
-# Conversion Markdown
-
-### D
+D
 
 Quatrième lettre de l’alphabet.
 La plus utilisée par Homer Simpsons.
 EX : « Doh! Duff! Deeeeee! »
 
-### Date
+Date - Rendez-vous, prononcé à l’anglaise [déte]. EX : « J’ai une date avec la p’tite poupoune. »
 
-n. f. — Rendez-vous, prononcé à l’anglaise [déte].
-EX : « J’ai une date avec la p’tite poupoune. »
+Deal - Anglicisme pour aubaine ou faveur. EX : « J’ai une deal pour toi, tu veux faire de l’argent? »
 
-### Deal
+Déconcrissé - État d’être délabré, complètement démoli. EX : « J’ai eu un accident, j’me sens décrissé partout… » Synonymes : décolissé, détabarnaquer.
 
-n. f. — Anglicisme pour aubaine ou faveur.
-EX : « J’ai une deal pour toi, tu veux faire de l’argent? »
+Débilos - Personne stupide ou débile, dans un contexte ironique ou exagéré. EX : « Le débilos humanus crétinius est bel et bien le premier sinistre du pays. »
 
-### Déconcrissé
+Déguerpir - Se pousser d’une situation embarrassante, se sauver. EX : « Merde, tu n’es pas célibataire… je dois déguerpir avant qu’il arrive… »
 
-adj. — État d’être délabré, complètement démoli.
-EX : « J’ai eu un accident, j’me sens décrissé partout… »
-Synonymes : décolissé, détabarnaquer.
+Débarque - Chute, se prendre une gamelle. EX : « J’ai piqué une débarque en bas de l’escalier. » Note : “jambette” = petit coup pour faire tomber.
 
-### Débilos
+Dépanneur - Magasin du coin pour acheter un peu de tout hors des heures normales.
 
-n. m. — Personne stupide ou débile, dans un contexte ironique ou
-exagéré.
-EX : « Le débilos humanus crétinius est bel et bien le premier sinistre
-du pays. »
+Disciple - Personne servant une autre, pratiquement un esclave; un mouton dans le contexte.
 
-### Déguerpir
+Divaniser - S’étendre sur le divan, en position fœtus, pour végéter devant la télé.
 
-v. — Se pousser d’une situation embarrassante, se sauver.
-EX : « Merde, tu n’es pas célibataire… je dois déguerpir avant qu’il
-arrive… »
+Down - Anglicisme pour bas, déprime, moral à plat. EX : « Je me sens down, mes piles sont à plats… »
 
-### Débarque
-
-n. f. — Chute, se prendre une gamelle.
-EX : « J’ai piqué une débarque en bas de l’escalier. »
-Note : “jambette” = petit coup pour faire tomber.
-
-### Dépanneur
-
-n. m. — Magasin du coin pour acheter un peu de tout hors des heures
-normales.
-
-### Disciple
-
-n. m. — Personne servant une autre, pratiquement un esclave; un mouton
-dans le contexte.
-
-### Divaniser
-
-v. — S’étendre sur le divan, en position fœtus, pour végéter devant la
-télé.
-
-### Down
-
-n. m. — Anglicisme pour bas, déprime, moral à plat.
-EX : « Je me sens down, mes piles sont à plats… »
-
-### Drette
-
-adj. — Droit, exact, en ligne.
-EX : « C’est drette, nous pouvons continuer la construction. »
+Drette - Droit, exact, en ligne. EX : « C’est drette, nous pouvons continuer la construction. »
