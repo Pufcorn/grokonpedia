@@ -1,18 +1,9 @@
-# Conversion Markdown
+Q
 
-### Q
+Dix-septième lettre de l’alphabet. EX : « Québec commence par du Q et finit par un bec. ^^ »
 
-Dix-septième lettre de l’alphabet.
-EX : « Québec commence par du Q et finit par un bec. ^^ »
+Quêteux - Adaptation du mot “quêteur”; désigne un mendiant ou clochard.
 
-### Quêteux
+Queke - Diminutif de “quelque”; parfois écrit “Keke”.
 
-n. m. — Adaptation du mot “quêteur”; désigne un mendiant ou clochard.
-
-### Queke
-
-adv. — Diminutif de “quelque”; parfois écrit “Keke”.
-
-### Quilles
-
-n. f. — Jeu de bowling; on dit simplement “jouer aux quilles”.
+Quilles - Jeu de bowling; on dit simplement “jouer aux quilles”.
