@@ -1,74 +1,28 @@
-# Conversion Markdown
-
-### F
+F
 
 Sixième lettre de l’alphabet.
-EX : « FTW !!! » (lettre suivie de T et W pour exprimer la joie de
-vivre)
+EX : « FTW !!! » (lettre suivie de T et W pour exprimer la joie de vivre)
 
-### Fâcher
+Fâcher - Être en colère. EX : « Chus fâché, mon rendez-vous est annulé à la dernière minute… »
 
-v. — Être en colère.
-EX : « Chus fâché, mon rendez-vous est annulé à la dernière minute… »
+Faque - Ainsi, donc, par conséquence. EX : « Tu es laid faque reste près de moi, je parais plus beau. »
 
-### Faque
+Fin / Fine - Gentil ou gentille d’une personne.
 
-conj. — Ainsi, donc, par conséquence.
-EX : « Tu es laid faque reste près de moi, je parais plus beau. »
+Fitter - Ajuster; emprunté de l’anglais (to fit). EX : « La pièce fitte pas dans l’emplacement, ponce-là, elle entrera ensuite. »
 
-### Fin / Fine
+Flaque - Petite étendue d’eau, trou d’eau. EX : « Un jour, je traverserai la flaque océanique pour visiter mes ami(e)s de l’Europe. »
 
-adj. — Gentil ou gentille d’une personne.
+Foirer - Faire la fête. EX : « La fête nationale des francophones, j’ai foiré et j’ai un de ces maux de tête… »
 
-### Fitter
+Fort - Boisson alcoolisée à fort %. EX : « Je suis fort, parfois je sens fort, surtout le lendemain d’une brosse au fort! »
 
-v. — Ajuster; emprunté de l’anglais (to fit).
-EX : « La pièce fitte pas dans l’emplacement, ponce-là, elle entrera
-ensuite. »
+Frippé - Froissé; employé pour désigner un lendemain de brosse. EX : « Hier, j’ai viré toute une brosse, hé que je suis frippé ce matin ! »
 
-### Flaque
+Frette - Déformation de “froid”, très froid. EX : « -36°C. C’est frette en tabarnouche… »
 
-n. f. — Petite étendue d’eau, trou d’eau.
-EX : « Un jour, je traverserai la flaque océanique pour visiter mes
-ami(e)s de l’Europe. »
+Froque - Style de manteau délabré ou usé. EX : « Ma froque de cuir est indestructible, ma blonde aimerait bien que je m’en débarrasse… »
 
-### Foirer
+Fuckaillage - Temps perdu, impression de ne rien faire de bon. EX : « Ce travail m’écœure, c’est juste du fuckaillage de merde qui sert à rien… »
 
-v. — Faire la fête.
-EX : « La fête nationale des francophones, j’ai foiré et j’ai un de ces
-maux de tête… »
-
-### Fort
-
-n. m. — Boisson alcoolisée à fort %.
-EX : « Je suis fort, parfois je sens fort, surtout le lendemain d’une
-brosse au fort! »
-
-### Frippé
-
-adj. — Froissé; employé pour désigner un lendemain de brosse.
-EX : « Hier, j’ai viré toute une brosse, hé que je suis frippé ce
-matin ! »
-
-### Frette
-
-n. m. — Déformation de “froid”, très froid.
-EX : « -36°C. C’est frette en tabarnouche… »
-
-### Froque
-
-n. f. — Style de manteau délabré ou usé.
-EX : « Ma froque de cuir est indestructible, ma blonde aimerait bien que
-je m’en débarrasse… »
-
-### Fuckaillage
-
-n. m. — Temps perdu, impression de ne rien faire de bon.
-EX : « Ce travail m’écœure, c’est juste du fuckaillage de merde qui sert
-à rien… »
-
-### Fucké
-
-adj. — Dérivé de l’anglais “fuck”; désigne quelqu’un ou quelque chose de
-tordu ou fou.
-EX : « Il porte un manteau d’hiver en été, il est fucké bin raide… »
+Fucké - Dérivé de l’anglais “fuck”; désigne quelqu’un ou quelque chose de tordu ou fou. EX : « Il porte un manteau d’hiver en été, il est fucké bin raide… »
