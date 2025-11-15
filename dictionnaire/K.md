@@ -1,24 +1,11 @@
-# Conversion Markdown
+K
 
-### K
+Onzième lettre de l’alphabet. Remplace parfois « ok, oké, correct » ou le « c » dans certaines conneries de conversation.
 
-Onzième lettre de l’alphabet.
-Remplace parfois « ok, oké, correct » ou le « c » dans certaines
-conneries de conversation.
+Keke - Variante abrégée de « quelque » ou « quel que ».
 
-### Keke
+Kétaine - Vieillerie ou chose jugée de qualité inquiétante. EX : Peut aussi s’écrire « Quétaine ».
 
-adv. — Variante abrégée de « quelque » ou « quel que ».
+Kleenex - Mouchoirs, emprunté du nom de la compagnie.
 
-### Kétaine
-
-adj. — Vieillerie ou chose jugée de qualité inquiétante.
-EX : Peut aussi s’écrire « Quétaine ».
-
-### Kleenex
-
-n. m. — Mouchoirs, emprunté du nom de la compagnie.
-
-### Kodak
-
-n. m. — Appareil photo, emprunté de la compagnie qui les produisait.
+Kodak - Appareil photo, emprunté de la compagnie qui les produisait.
