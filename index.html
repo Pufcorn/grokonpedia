@@ -98,8 +98,8 @@
     const input = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
 
+    // GROKON MASSIVE RESPONSES
     const reponses = {
-      // Salutations
       "allo": ["Bienvenue ici pour avoir du plaisir!", "Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎", "Allô! Sacrafice, prépare-toi à jaser!", "Allô! Crisse de p’tit, bienvenue!", "Salut! Maudit plaisir que t’es là!", "Allô tabarnouche, comment ça va?"],
       "allô": ["Bienvenue ici pour avoir du plaisir!", "Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎", "Allô! Sacrafice, prépare-toi à jaser!", "Allô! Crisse de p’tit, bienvenue!", "Salut! Maudit plaisir que t’es là!", "Allô tabarnouche, comment ça va?"],
       "hello": ["Bienvenue ici pour avoir du plaisir!", "Yo! Sacrafice, bienvenue!", "Hi hi, t’es là! 😎", "Hello tabarnouche, salut!"],
@@ -107,20 +107,17 @@
       "bonjour": ["Bienvenue ici pour avoir du plaisir!", "Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎"],
       "bon matin": ["Bonjour matin! Sacrafice!", "Ah ben bon matin tabarnouche!", "Yo matin! 😎"],
       "bonsoir": ["Bonsoir! Crisse de p’tit!", "Salut le soir! Tabarnouche!", "Yo yo! Sacrafice!"],
-
-      // Chercher
+      
       "cherche": ["Oui, bien sûr, précise.", "Cherche où? Sacrafice!", "J’peux t’aider à trouver ça!", "Regarde bien, tabarnouche!"],
       "recherche": ["Oui, bien sûr, précise.", "Recherche ça? Sacrafice!", "Cherchons ensemble!", "Tabarnouche, regarde là!"] ,
       "je ne trouve pas": ["Oui, bien sûr, précise.", "Maudit! Cherchons ça!", "Tabarnouche, t’as regardé là?"] ,
       "c’est où": ["Oui, bien sûr, précise.", "Sacrafice, où ça?", "Regarde ici tabarnouche!"] ,
       "tu sais comment trouver": ["Oui, bien sûr, précise.", "Tabarnouche! Suis-moi là!", "Sacrafice, je peux te montrer!"] ,
 
-      // Défs et expressions
       "définitions": ["C’est ici – endroit où sont les définitions.", "Sacrafice, ici les définitions!"] ,
       "definition": ["C’est ici – endroit où sont les définitions.", "Sacrafice, ici les définitions!"] ,
       "expressions": ["C’est par là – endroit où sont les expressions.", "Tabarnouche, c’est ici les expressions!"] ,
 
-      // Divers / fun
       "quoi": ["Rien de spécial!", "Sacrafice, rien à voir là!", "Ostie, y’a rien à dire!", "Tabarnouche, tu t’attendais à quoi? 😅"],
       "temps": ["Le temps, c’est relatif.", "Maudit temps, il file vite!", "Sacrafice, regarde l’horloge!", "Tabarnouche, le soleil fait son tour! 🌞"],
       "nuages": ["Parce qu’ils flottent, pas qu’ils marchent. ☁️👟", "Sacrafice, tu crois qu’ils vont tomber?", "Tabarnouche, nuages farceurs!"],
@@ -133,7 +130,13 @@
       "pierres": ["Parce qu’elles se blesseraient aux pieds. 🪨⚽", "Sacrafice, pas de football avec ça!", "Tabarnouche, elles restent sages!"] ,
       "neige": ["Oui, mais les bonhommes de neige risquent de rougir. ❄️🍅⛄", "Sacrafice, gants obligatoires!", "Tabarnouche, attention aux flocons!"],
       "bibliothèques": ["Parce qu’elles ont trop de livres lourds à porter. 📚🕊️", "Sacrafice, calme-toi avec les romans!", "Tabarnouche, elles font la sieste parfois!"] ,
-      "bonjour grokon": ["Salut, mon p’tit!", "Ah ben salut toi! Sacrafice!", "Tabarnouche, content de te voir! 😎"]
+      "bonjour grokon": ["Salut, mon p’tit!", "Ah ben salut toi! Sacrafice!", "Tabarnouche, content de te voir! 😎"],
+
+      // NOUVEAU FUN HUMAIN & BLABLATAGE
+      "raconte": ["Sacrafice, t’as deux minutes? J’ai une histoire drôle!", "Tabarnouche, écoute ça: y’avait un p’tit poisson qui voulait danser sur la lune...", "Ah ben ça, tu vas rire! 😅"],
+      "blague": ["Pourquoi la fourmi n’a jamais de frite? Sacrafice, elle est trop petite! 😂", "Tabarnouche, t’es prêt pour une farce?"],
+      "humeur": ["Aujourd’hui j’suis en forme, tabarnouche! 😎", "Sacrafice, j’ai envie de jaser longtemps!", "Tabarnouche, humour en stock!"],
+      "quoi de neuf": ["Ah ben, sacrafice, plein de trucs! 😁", "Tabarnouche, j’ai vu une grenouille qui lisait un livre!", "Ostie, c’est le chaos mais cool!"]
     };
 
     function appendMessage(text, sender="Grokon") {
