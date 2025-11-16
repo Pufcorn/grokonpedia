@@ -91,7 +91,7 @@
   </main>
   <footer>© 2025 Pufcorn. Tout contenu original m’appartient. Parodie humoristique.
                                     En construction.
-</footer>
+  </footer>
 
   <script>
     const messages = document.getElementById('messages');
@@ -99,22 +99,28 @@
     const sendBtn = document.getElementById('sendBtn');
 
     const reponses = {
-      "Allo": "Bonjour, tu désires?.",
-      "nuages": "Parce qu’ils flottent, pas qu’ils marchent. ☁️👟",
-      "fourmis": "Oui, mais seulement quand personne ne regarde. 🐜🧘",
-      "soleil": "Parce qu’il sait qu’il va se lever demain. 🌞",
-      "poissons": "Seulement quand la lumière fait des vagues. 🐟💃",
-      "montagne": "Oui, mais elle risque de se vexer. 🏔️🎩",
-      "étoiles": "Parce qu’elles savent qu’elles n’ont pas de cuillère. ✨🥄",
-      "grenouilles": "Oui, mais seulement les histoires qui sautent de page en page. 🐸📖",
-      "pierres": "Parce qu’elles se blesseraient aux pieds. 🪨⚽",
-      "neige": "Oui, mais les bonhommes de neige risquent de rougir. ❄️🍅⛄",
-      "bibliothèques": "Parce qu’elles ont trop de livres lourds à porter. 📚🕊️",
-      "bonjour": "Salut toi!",
-      "salut": "Salut toi!",
+      "allo": "Bienvenue ici pour avoir du plaisir!",
+      "allô": "Bienvenue ici pour avoir du plaisir!",
+      "hello": "Bienvenue ici pour avoir du plaisir!",
+      "hi": "Bienvenue ici pour avoir du plaisir!",
+      "bonjour": "Bienvenue ici pour avoir du plaisir!",
+      "bon matin": "Bienvenue ici pour avoir du plaisir!",
+      "bonsoir": "Bienvenue ici pour avoir du plaisir!",
+
+      "cherche": "Oui, bien sûr, précise.",
+      "recherche": "Oui, bien sûr, précise.",
+      "je ne trouve pas": "Oui, bien sûr, précise.",
+      "c’est où": "Oui, bien sûr, précise.",
+      "tu sais comment trouver": "Oui, bien sûr, précise.",
+
+      "définitions": "C’est ici – endroit où sont les définitions.",
+      "definition": "C’est ici – endroit où sont les définitions.",
+
+      "expressions": "C’est par là – endroit où sont les expressions.",
+
       "quoi": "Rien de spécial!",
       "temps": "Le temps, c’est relatif.",
-      "bonjour grokon": "Salut, mon p’tit! 😎"
+      "bonjour grokon": "Salut, mon p’tit!" 
     };
 
     function appendMessage(text, sender="Grokon") {
@@ -144,9 +150,10 @@
       if (e.key === 'Enter') respond();
     });
   </script>
+
   <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center;">
-  Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire</a>
-</div>
+    Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire</a>
+  </div>
 
 </body>
 </html>
