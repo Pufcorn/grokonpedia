@@ -83,12 +83,10 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Blocs Dictionnaire / Expressions / Conneries */
     .bloc {
       border:1px solid #ccc;
       padding:10px;
       width:220px;
-      margin:20px auto;
       text-align:center;
       font-size:1.3rem;
       font-weight:bold;
@@ -98,6 +96,14 @@
       color:#fff;
       font-size:1rem;
       margin-top:5px;
+    }
+    .blocs-container {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:30px;
+      width:100%;
     }
   </style>
 </head>
@@ -113,20 +119,22 @@
       </div>
     </div>
 
-    <!-- Blocs -->
-    <div class="bloc">
-      Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire de mots farfelus</a>
-      <p>Explorez les définitions les plus déjantées.</p>
-    </div>
+    <!-- Blocs horizontaux -->
+    <div class="blocs-container">
+      <div class="bloc">
+        Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire de mots farfelus</a>
+        <p>Explorez les définitions les plus déjantées.</p>
+      </div>
 
-    <div class="bloc">
-      Explorez le Grokonpedia : <a href="expressions/index.html">Expressions de partout au Québec</a>
-      <p>Découvrez des expressions locales savoureuses.</p>
-    </div>
+      <div class="bloc">
+        Explorez le Grokonpedia : <a href="expressions/index.html">Expressions de partout au Québec</a>
+        <p>Découvrez des expressions locales savoureuses.</p>
+      </div>
 
-    <div class="bloc">
-      <a href="Conneries/index.html">Le Coin des Conneries</a>
-      <p>Pour les érudits qui déconnent à plein poumons.</p>
+      <div class="bloc">
+        <a href="Conneries/index.html">Le Coin des Conneries</a>
+        <p>Pour les érudits qui déconnent à plein poumons.</p>
+      </div>
     </div>
 
   </main>
@@ -182,4 +190,5 @@
   </script>
 
 </body>
+</html>
 </html>
