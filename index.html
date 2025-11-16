@@ -99,28 +99,28 @@
     const sendBtn = document.getElementById('sendBtn');
 
     const reponses = {
-      "allo": "Bienvenue ici pour avoir du plaisir!",
-      "allô": "Bienvenue ici pour avoir du plaisir!",
-      "hello": "Bienvenue ici pour avoir du plaisir!",
-      "hi": "Bienvenue ici pour avoir du plaisir!",
-      "bonjour": "Bienvenue ici pour avoir du plaisir!",
-      "bon matin": "Bienvenue ici pour avoir du plaisir!",
-      "bonsoir": "Bienvenue ici pour avoir du plaisir!",
+      "allo": ["Bienvenue ici pour avoir du plaisir!", "Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎", "Allô! Sacrafice, prépare-toi à jaser!", "Allô! Crisse de p’tit, bienvenue!", "Salut! Maudit plaisir que t’es là!", "Allô tabarnouche, comment ça va?"] ,
+      "allô": ["Bienvenue ici pour avoir du plaisir!", "Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎", "Allô! Sacrafice, prépare-toi à jaser!", "Allô! Crisse de p’tit, bienvenue!", "Salut! Maudit plaisir que t’es là!", "Allô tabarnouche, comment ça va?"] ,
+      "hello": ["Bienvenue ici pour avoir du plaisir!", "Yo! Sacrafice, bienvenue!", "Hi hi, t’es là! 😎", "Hello tabarnouche, salut!"],
+      "hi": ["Bienvenue ici pour avoir du plaisir!", "Yo! Sacrafice, bienvenue!", "Hi hi, t’es là! 😎", "Hello tabarnouche, salut!"],
+      "bonjour": ["Bienvenue ici pour avoir du plaisir!", "Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎"],
+      "bon matin": ["Bonjour matin! Sacrafice!", "Ah ben bon matin tabarnouche!", "Yo matin! 😎"],
+      "bonsoir": ["Bonsoir! Crisse de p’tit!", "Salut le soir! Tabarnouche!", "Yo yo! Sacrafice!"],
+      
+      "cherche": ["Oui, bien sûr, précise.", "Cherche où? Sacrafice!", "J’peux t’aider à trouver ça!", "Regarde bien, tabarnouche!"],
+      "recherche": ["Oui, bien sûr, précise.", "Recherche ça? Sacrafice!", "Cherchons ensemble!", "Tabarnouche, regarde là!"] ,
+      "je ne trouve pas": ["Oui, bien sûr, précise.", "Maudit! Cherchons ça!", "Tabarnouche, t’as regardé là?"] ,
+      "c’est où": ["Oui, bien sûr, précise.", "Sacrafice, où ça?", "Regarde ici tabarnouche!"] ,
+      "tu sais comment trouver": ["Oui, bien sûr, précise.", "Tabarnouche! Suis-moi là!", "Sacrafice, je peux te montrer!"] ,
+      
+      "définitions": ["C’est ici – endroit où sont les définitions.", "Sacrafice, ici les définitions!"] ,
+      "definition": ["C’est ici – endroit où sont les définitions.", "Sacrafice, ici les définitions!"] ,
 
-      "cherche": "Oui, bien sûr, précise.",
-      "recherche": "Oui, bien sûr, précise.",
-      "je ne trouve pas": "Oui, bien sûr, précise.",
-      "c’est où": "Oui, bien sûr, précise.",
-      "tu sais comment trouver": "Oui, bien sûr, précise.",
+      "expressions": ["C’est par là – endroit où sont les expressions.", "Tabarnouche, c’est ici les expressions!"] ,
 
-      "définitions": "C’est ici – endroit où sont les définitions.",
-      "definition": "C’est ici – endroit où sont les définitions.",
-
-      "expressions": "C’est par là – endroit où sont les expressions.",
-
-      "quoi": "Rien de spécial!",
-      "temps": "Le temps, c’est relatif.",
-      "bonjour grokon": "Salut, mon p’tit!" 
+      "quoi": ["Rien de spécial!", "Sacrafice, rien à voir là!"],
+      "temps": ["Le temps, c’est relatif.", "Maudit temps, il file vite!"],
+      "bonjour grokon": ["Salut, mon p’tit!", "Ah ben salut toi! Sacrafice!"]
     };
 
     function appendMessage(text, sender="Grokon") {
@@ -137,9 +137,11 @@
       appendMessage(msg, "Toi");
 
       if (reponses[msg]) {
-        appendMessage(reponses[msg]);
+        const choix = reponses[msg];
+        const aleatoire = choix[Math.floor(Math.random() * choix.length)];
+        appendMessage(aleatoire);
       } else {
-        appendMessage("Ouais, je pige pas trop...");
+        appendMessage("Ouais, je pige pas trop... Sacrafice!");
       }
 
       input.value = "";
