@@ -26,9 +26,10 @@
     main {
       flex: 1;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       width: 100%;
+      padding: 20px;
     }
     .grokon-container {
       text-align: center;
@@ -75,6 +76,13 @@
       color: #9b9b9b;
       font-size: 0.85rem;
     }
+    a {
+      color: #ffdd57;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -88,10 +96,18 @@
         <button id="sendBtn">Envoyer</button>
       </div>
     </div>
+
+    <!-- Boutons Dictionnaire et Expressions -->
+    <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center; font-size:1.3rem; font-weight:bold;">
+      Explorez le Grokonpedia : <a href="expressions/index.html">Expressions de partout au Québec</a>
+    </div>
+
+    <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center; font-size:1.3rem; font-weight:bold;">
+      Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire de mots farfelus</a>
+    </div>
+
   </main>
-  <footer>© 2025 Pufcorn. Tout contenu original m’appartient. Parodie humoristique.
-                                    En construction.
-  </footer>
+  <footer>© 2025 Pufcorn. Tout contenu original m’appartient. Parodie humoristique. En construction.</footer>
 
   <script>
     const messages = document.getElementById('messages');
@@ -99,40 +115,19 @@
     const sendBtn = document.getElementById('sendBtn');
 
     const reponses = {
-      "salut": ["Ah ben salut, tabarnouche!", "Yo yo! 😎", "Salut! Sacrafice, content de te voir!"],
-      "saluts": ["Ah ben salut, tabarnouche!", "Yo yo! 😎", "Salut! Sacrafice, content de te voir!"],
-      "allo": ["Bienvenue ici pour avoir du plaisir!", "Allô! Sacrafice, prépare-toi à jaser!"],
-      "allô": ["Bienvenue ici pour avoir du plaisir!", "Allô! Crisse de p’tit, bienvenue!"],
-      "hello": ["Yo! Sacrafice, bienvenue!", "Hello tabarnouche, salut!"],
-      "hi": ["Yo! Sacrafice, bienvenue!", "Hi hi, t’es là! 😎"],
-      "bonjour": ["Ah ben salut, tabarnouche!", "Yo yo, t’es là! 😎"],
-      "bon matin": ["Bonjour matin! Sacrafice!", "Yo matin! 😎"],
-      "bonsoir": ["Bonsoir! Crisse de p’tit!", "Yo yo! Sacrafice!"],
-      "cherche": ["Oui, bien sûr, précise.", "Cherche où? Sacrafice!", "J’peux t’aider à trouver ça!"],
-      "je cherche": ["Oui, bien sûr, précise.", "Sacrafice! Où ça?", "Tabarnouche, regarde ici!"] ,
-      "je ne trouve pas": ["Maudit! Cherchons ça!", "Tabarnouche, t’as regardé là?"] ,
-      "c’est où": ["Sacrafice, où ça?", "Regarde ici tabarnouche!"] ,
-      "tu sais comment trouver": ["Tabarnouche! Suis-moi là!", "Sacrafice, je peux te montrer!"] ,
-      "définitions": ["C’est ici – endroit où sont les définitions.", "Sacrafice, ici les définitions!"] ,
-      "definition": ["C’est ici – endroit où sont les définitions.", "Sacrafice, ici les définitions!"] ,
-      "expressions": ["C’est par là – endroit où sont les expressions.", "Tabarnouche, c’est ici les expressions!"] ,
-      "quoi": ["Rien de spécial!", "Sacrafice, rien à voir là!", "Ostie, y’a rien à dire!"],
-      "temps": ["Le temps, c’est relatif.", "Maudit temps, il file vite!", "Tabarnouche, le soleil fait son tour! 🌞"],
-      "nuages": ["Parce qu’ils flottent, pas qu’ils marchent. ☁️👟", "Tabarnouche, nuages farceurs!"],
-      "fourmis": ["Oui, mais seulement quand personne ne regarde. 🐜🧘", "Sacrafice, elles complotent!"] ,
-      "soleil": ["Parce qu’il sait qu’il va se lever demain. 🌞", "Tabarnouche, prépare tes lunettes!"] ,
-      "poissons": ["Seulement quand la lumière fait des vagues. 🐟💃", "Tabarnouche, ils dansent sous l’eau!"] ,
-      "montagne": ["Oui, mais elle risque de se vexer. 🏔️🎩", "Tabarnouche, regarde son chapeau de nuage!"] ,
-      "étoiles": ["Parce qu’elles savent qu’elles n’ont pas de cuillère. ✨🥄", "Sacrafice, elles brillent fort!"] ,
-      "grenouilles": ["Oui, mais seulement les histoires qui sautent de page en page. 🐸📖", "Tabarnouche, elles font la fête!"] ,
-      "pierres": ["Parce qu’elles se blesseraient aux pieds. 🪨⚽", "Tabarnouche, elles restent sages!"] ,
-      "neige": ["Oui, mais les bonhommes de neige risquent de rougir. ❄️🍅⛄", "Tabarnouche, attention aux flocons!"],
-      "bibliothèques": ["Parce qu’elles ont trop de livres lourds à porter. 📚🕊️", "Sacrafice, calme-toi avec les romans!"] ,
-      "bonjour grokon": ["Salut, mon p’tit!", "Ah ben salut toi! Sacrafice!"],
-      "raconte": ["Sacrafice, t’as deux minutes? J’ai une histoire drôle!", "Tabarnouche, écoute ça: y’avait un p’tit poisson qui voulait danser sur la lune..."],
-      "blague": ["Pourquoi la fourmi n’a jamais de frite? Sacrafice, elle est trop petite! 😂", "Tabarnouche, t’es prêt pour une farce?"],
-      "humeur": ["Aujourd’hui j’suis en forme, tabarnouche! 😎", "Sacrafice, j’ai envie de jaser longtemps!"],
-      "quoi de neuf": ["Ah ben, sacrafice, plein de trucs! 😁", "Tabarnouche, j’ai vu une grenouille qui lisait un livre!"]
+      "allo": "Salut toi!",
+      "allô": "Salut toi!",
+      "hello": "Hi! Bienvenue!",
+      "bon matin": "Salut! Belle journée à toi!",
+      "bonsoir": "Salut! Bonne soirée!",
+      "hi": "Hi! Welcome!",
+      "cherche": "Oui, bien sûr, précise ce que tu cherches.",
+      "recherche": "Oui, bien sûr, précise ce que tu cherches.",
+      "je ne trouve pas": "Oui, bien sûr, précise ce que tu cherches.",
+      "c’est où": "Oui, bien sûr, précise ce que tu cherches.",
+      "tu sais comment trouver": "Oui, bien sûr, précise ce que tu cherches.",
+      "définitions": "C’est ici – endroit où sont les définitions.",
+      "expressions": "C’est par là – endroit où sont les expressions."
     };
 
     function appendMessage(text, sender="Grokon") {
@@ -148,17 +143,11 @@
       if (msg === "") return;
       appendMessage(msg, "Toi");
 
-      let reponseTrouvee = false;
-      for (let key in reponses) {
-        if (msg.includes(key)) {
-          const choix = reponses[key];
-          const aleatoire = choix[Math.floor(Math.random() * choix.length)];
-          appendMessage(aleatoire);
-          reponseTrouvee = true;
-          break;
-        }
+      if (reponses[msg]) {
+        appendMessage(reponses[msg]);
+      } else {
+        appendMessage("Ouais, je pige pas trop...");
       }
-      if (!reponseTrouvee) appendMessage("Ouais, je pige pas trop... Sacrafice!");
 
       input.value = "";
     }
@@ -168,14 +157,6 @@
       if (e.key === 'Enter') respond();
     });
   </script>
-
-  <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center; font-size:1.3rem; font-weight:bold;">
-    Explorez le Grokonpedia : <a href="expressions/index.html">Expressions de partout au Québec</a>
-  </div>
-
-  <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center; font-size:1.3rem; font-weight:bold;">
-    Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire de mots farfelus</a>
-  </div>
 
 </body>
 </html>
