@@ -98,7 +98,6 @@
     const input = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
 
-    // GROSSE LISTE DE MOTS-CLÉS + VARIANTES
     const reponses = {
       "salut": ["Ah ben salut, tabarnouche!", "Yo yo! 😎", "Salut! Sacrafice, content de te voir!"],
       "saluts": ["Ah ben salut, tabarnouche!", "Yo yo! 😎", "Salut! Sacrafice, content de te voir!"],
@@ -130,7 +129,6 @@
       "neige": ["Oui, mais les bonhommes de neige risquent de rougir. ❄️🍅⛄", "Tabarnouche, attention aux flocons!"],
       "bibliothèques": ["Parce qu’elles ont trop de livres lourds à porter. 📚🕊️", "Sacrafice, calme-toi avec les romans!"] ,
       "bonjour grokon": ["Salut, mon p’tit!", "Ah ben salut toi! Sacrafice!"],
-      // FUN ET HUMAIN
       "raconte": ["Sacrafice, t’as deux minutes? J’ai une histoire drôle!", "Tabarnouche, écoute ça: y’avait un p’tit poisson qui voulait danser sur la lune..."],
       "blague": ["Pourquoi la fourmi n’a jamais de frite? Sacrafice, elle est trop petite! 😂", "Tabarnouche, t’es prêt pour une farce?"],
       "humeur": ["Aujourd’hui j’suis en forme, tabarnouche! 😎", "Sacrafice, j’ai envie de jaser longtemps!"],
@@ -150,7 +148,6 @@
       if (msg === "") return;
       appendMessage(msg, "Toi");
 
-      // VÉRIFICATION SOUPLE: INCLUDES POUR FLEXIBILITÉ
       let reponseTrouvee = false;
       for (let key in reponses) {
         if (msg.includes(key)) {
@@ -173,9 +170,12 @@
   </script>
 
   <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center;">
-    Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire</a>
+    Explorez le Grokonpedia : <a href="expressions/index.html">Expressions de partout au Québec</a>
+  </div>
+
+  <div style="border:1px solid #ccc; padding:10px; width:220px; margin:20px auto; text-align:center;">
+    Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire de mots farfelus</a>
   </div>
 
 </body>
 </html>
-
