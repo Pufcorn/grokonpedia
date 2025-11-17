@@ -10,13 +10,44 @@ const simples = {
   "prout": "Osti de drôle! 💨",
   "pet": "Ah crisse! 💨",
   "bonjour": "Salut! Belle journée!",
-  "bonsoir": "Salut! Bonne soirée!"
+  "bonsoir": "Salut! Bonne soirée!",
+  "oui": "Bin oui, évidemment!",
+  "non": "Bin non, crisse!"
+};
+
+// Réponses exactes du Question.md
+const questionsReponses = {
+  "aujourd’hui nous sommes?": "Aujourd’hui! La réponse est dans la question.",
+  "tu es prêts?": "Non mais oui!",
+  "que cherches-tu?": "Moi?",
+  "je suis ici pour t’aider, tu désire?": "Non, je ne suis pas une banque...",
+  "pourquoi les nuages ne portent-ils pas de chaussures?": "Parce qu’ils flottent, pas qu’ils marchent. ☁️👟",
+  "les fourmis font-elles du yoga?": "Oui, mais seulement quand personne ne regarde. 🐜🧘",
+  "peut-on téléphoner à un arbre?": "Oui, mais il risque de répondre “pas de signal”. 🌳📞",
+  "pourquoi le soleil ne se couche jamais triste?": "Parce qu’il sait qu’il va se lever demain. 🌞",
+  "est-ce que les poissons aiment le disco?": "Seulement quand la lumière fait des vagues. 🐟💃",
+  "peut-on mettre un chapeau sur une montagne?": "Oui, mais elle risque de se vexer. 🏔️🎩",
+  "pourquoi les étoiles ne tombent-elles jamais dans ta soupe?": "Parce qu’elles savent qu’elles n’ont pas de cuillère. ✨🥄",
+  "les grenouilles lisent-elles des romans?": "Oui, mais seulement les histoires qui sautent de page en page. 🐸📖",
+  "peut-on apprendre à un nuage à chanter?": "Oui, mais il faut un chef d’orchestre en parapluie. ☁️🎶☂️",
+  "pourquoi les pierres ne jouent-elles jamais au football?": "Parce qu’elles se blesseraient aux pieds. 🪨⚽",
+  "les poissons utilisent-ils des lunettes de soleil?": "Seulement quand ils font du snorkeling sous-marin. 🐟🕶️",
+  "peut-on mettre du ketchup sur la neige?": "Oui, mais les bonhommes de neige risquent de rougir. ❄️🍅⛄",
+  "pourquoi les horloges n’aiment pas les montgolfières?": "Parce qu’elles perdent la notion du temps en altitude. ⏰🎈",
+  "les cactus dansent-ils quand personne ne regarde?": "Oui, mais ils piquent un peu leurs voisins. 🌵💃",
+  "peut-on faire des omelettes avec des nuages?": "Oui, mais il faut un bon vent pour battre les blancs. ☁️🍳💨",
+  "pourquoi les bibliothèques ne volent-elles jamais?": "Parce qu’elles ont trop de livres lourds à porter. 📚🕊️"
 };
 
 // 1000+ réponses niaiseuses
 const niaiseuses = [];
 for (let i = 1; i <= 1000; i++) {
   niaiseuses.push(`Réponse drôle numéro ${i} 😎`);
+}
+
+// Supprime ponctuation et met en minuscules
+function sanitize(text) {
+  return text.toLowerCase().replace(/[.,!?]/g, "").trim();
 }
 
 // Affichage du message
@@ -30,14 +61,23 @@ function appendMessage(text, sender="Grokon") {
 
 // Réponse
 function respond() {
-  const msg = input.value.trim().toLowerCase();
+  const msg = sanitize(input.value);
   if (!msg) return;
   appendMessage(input.value, "Toi");
 
-  // Répond à tout mot simple présent dans la phrase
+  // Vérifie les mots simples
   for (const key in simples) {
-    if (msg.indexOf(key) !== -1) { // <<== ici c’est le contains réel
+    if (msg.includes(key)) {
       appendMessage(simples[key]);
+      input.value = "";
+      return;
+    }
+  }
+
+  // Vérifie les vraies questions
+  for (const key in questionsReponses) {
+    if (msg.includes(key)) {
+      appendMessage(questionsReponses[key]);
       input.value = "";
       return;
     }
@@ -52,3 +92,4 @@ function respond() {
 // Événements
 sendBtn.addEventListener('click', respond);
 input.addEventListener('keydown', e => { if (e.key === 'Enter') respond(); });
+
