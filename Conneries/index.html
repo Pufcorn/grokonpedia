@@ -15,32 +15,54 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start;
+      padding-top:40px;
     }
     h1 {
       font-size:2.5rem;
       margin-bottom:40px;
       text-align:center;
     }
-    .menu-conneries {
+    .blocs-container {
       display:flex;
-      flex-direction:column;
+      justify-content:center;
       gap:20px;
-      max-width:400px;
+      flex-wrap:wrap;
       width:100%;
+      max-width:900px;
+      padding:0 20px;
     }
-    .menu-conneries button {
-      padding:20px;
-      font-size:1.2rem;
+    .bloc {
+      border:1px solid #ccc;
       border-radius:12px;
-      width:100%;
-      border:none;
+      padding:20px;
+      width:250px;
+      text-align:center;
+      background:#333;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .bloc:hover {
+      transform:scale(1.05);
       background:#444;
+    }
+    .bloc button {
+      padding:15px 20px;
+      font-size:1.1rem;
+      border-radius:10px;
+      border:none;
+      background:#555;
       color:#fff;
       cursor:pointer;
+      width:100%;
+      margin-top:10px;
     }
-    .menu-conneries button:hover {
-      background:#666;
+    .bloc button:hover {
+      background:#777;
+    }
+    .bloc p {
+      margin-top:10px;
+      font-size:0.95rem;
+      color:#ddd;
     }
     a {
       text-decoration:none;
@@ -50,12 +72,26 @@
 </head>
 <body>
   <h1>Le Coin des Conneries</h1>
-  <div class="menu-conneries">
-    <a href="https://www.jeu-du-solitaire.com/" target="_blank"><button>Jeux de cartes gratuits</button></a>
-    <a href="https://www.silvergames.com/fr/asteroids" target="_blank"><button>Jeux rétros cuculs</button></a>
-    <a href="https://fart-machine.com/" target="_blank"><button>Site de conneries diverses</button></a>
+  <div class="blocs-container">
+    <div class="bloc">
+      <p>Jeux de cartes gratuits pour se détendre.</p>
+      <a href="https://www.jeu-du-solitaire.com/" target="_blank">
+        <button>Jeux de cartes gratuits</button>
+      </a>
+    </div>
+    <div class="bloc">
+      <p>Jeux rétro cuculs à l’ancienne.</p>
+      <a href="https://www.silvergames.com/fr/asteroids" target="_blank">
+        <button>Jeux rétros cuculs</button>
+      </a>
+    </div>
+    <div class="bloc">
+      <p>Pour les érudits qui veulent péter un peu.</p>
+      <a href="https://fart-machine.com/" target="_blank">
+        <button>Site de conneries diverses</button>
+      </a>
+    </div>
   </div>
 </body>
 </html>
-
 
