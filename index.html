@@ -142,18 +142,9 @@
 
 <script src="grokon.js"></script>
 
-<script>
-  async function updateVisitCounter() {
-    try {
-      const res = await fetch('https://api.countapi.xyz/hit/grokonpedia/frank');
-      const data = await res.json();
-      console.log('Visites totales :', data.value);
-    } catch (err) {
-      console.error('Erreur compteur :', err);
-    }
-  }
-  updateVisitCounter();
-</script>
+<!-- Pixel invisible compteur, privé -->
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=grokonpedia.net&count_bg=%23ffffff00&title_bg=%23ffffff00&icon=&icon_color=%23FFFFFF00&title=&edge_flat=false"
+     alt="" style="width:1px; height:1px; opacity:0;">
+
 </body>
 </html>
-
