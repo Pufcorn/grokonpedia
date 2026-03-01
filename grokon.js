@@ -23,7 +23,7 @@ const questionsReponses = {
   "je suis ici pour t'aider, tu désire?": "Non, je ne suis pas une banque...",
   "pourquoi les nuages ne portent-ils pas de chaussures?": "Parce qu'ils flottent, pas qu'ils marchent. ☁️👟",
   "les fourmis font-elles du yoga?": "Oui, mais seulement quand personne ne regarde. 🐜🧘",
-  "peut-on téléphoner à un arbre?": "Oui, mais il risque de répondre "pas de signal". 🌳📞",
+  "peut-on téléphoner à un arbre?": "Oui, mais il risque de répondre 'pas de signal'. 🌳📞",
   "pourquoi le soleil ne se couche jamais triste?": "Parce qu'il sait qu'il va se lever demain. 🌞",
   "est-ce que les poissons aiment le disco?": "Seulement quand la lumière fait des vagues. 🐟💃",
   "peut-on mettre un chapeau sur une montagne?": "Oui, mais elle risque de se vexer. 🏔️🎩",
