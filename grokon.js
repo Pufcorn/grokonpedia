@@ -39,9 +39,8 @@ const questionsReponses = {
   "pourquoi les bibliothèques ne volent-elles jamais?": "Parce qu'elles ont trop de livres lourds à porter. 📚🕊️"
 };
 
-// Réponses niaiseuses en joual abitibien - mélange de tout!
+// Réponses niaiseuses en joual abitibien
 const niaiseuses = [
-  // Joual pur court
   "Han? Quossé?",
   "Hein?! Paaardon?",
   "J'ai pas compris, chu pas Einstein moi.",
@@ -60,8 +59,6 @@ const niaiseuses = [
   "J'sais-tu moé!",
   "Parle donc français!",
   "Chu pas ton encyclopédie.",
-
-  // Absurde avec emojis
   "J'ai demandé à mon orignal pis il sait pas non. 🦌",
   "La réponse est quelque part entre Rouyn pis Noranda. 📍",
   "Mon neurone a planté, reessaye. 🧠💥",
@@ -82,8 +79,6 @@ const niaiseuses = [
   "Honnêtement? J'sais pas plus que toi. 🙈",
   "Grokon calcule... Grokon se plante. 💥",
   "J'ai cherché dans mon disque dur, j'ai trouvé juste des jokes plates. 💾",
-
-  // Insultes amicales abitibiennes
   "Torr... t'as vraiment demandé ça, toé?",
   "Osti de belle question, ça dit.",
   "T'es effrayant, toé. Dans le bon sens.",
@@ -98,8 +93,6 @@ const niaiseuses = [
   "Mon p'tit torr, t'as encore bu du café du dépanneur?",
   "Esti, t'aurais pu garder ça pour toi.",
   "Toi pis tes questions, you.",
-
-  // Mélange absurde + joual
   "C'est comme les chevreuils sur le bord du chemin, ça répond pas. 🦌",
   "Quossé ça rapport avec moé? Zéro rapport. 🤷",
   "Ça rentrait pas dans ma tête même si tu me payais. 💰🧠",
@@ -142,7 +135,6 @@ function respond() {
   if (!msg) return;
   appendMessage(input.value, "Toi");
 
-  // Vérifie les mots simples
   for (const key in simples) {
     if (msg.includes(key)) {
       appendMessage(simples[key]);
@@ -151,7 +143,6 @@ function respond() {
     }
   }
 
-  // Vérifie les vraies questions
   for (const key in questionsReponses) {
     if (msg.includes(key)) {
       appendMessage(questionsReponses[key]);
@@ -160,7 +151,6 @@ function respond() {
     }
   }
 
-  // Sinon réponse aléatoire niaiseuse
   const aleatoire = niaiseuses[Math.floor(Math.random() * niaiseuses.length)];
   appendMessage(aleatoire);
   input.value = "";
