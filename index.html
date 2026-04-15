@@ -4,6 +4,160 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Grokonpedia</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-color: #2b2b2b;
+      font-family: sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
+    .grokon-container {
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(40px, 6vw, 88px);
+      margin: 0;
+      color: #e6e6e6;
+    }
+    #chatbox {
+      border: 1px solid #555;
+      border-radius: 12px;
+      padding: 15px;
+      width: 320px;
+      margin-top: 20px;
+      background: rgba(255,255,255,0.05);
+    }
+    input {
+      width: 70%;
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+      margin-right: 5px;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      background: #444;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #666;
+    }
+    .msg {
+      text-align: left;
+      margin: 5px 0;
+    }
+    footer {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      color: #9b9b9b;
+      font-size: 0.85rem;
+    }
+    a {
+      color: #4169e1; /* bleu royal */
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .bloc {
+      border:1px solid #ccc;
+      padding:10px;
+      width:220px;
+      text-align:center;
+      font-size:1.3rem;
+      font-weight:bold;
+      border-radius:10px;
+    }
+    .bloc p {
+      color:#fff;
+      font-size:1rem;
+      margin-top:5px;
+    }
+    .blocs-container {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-top:30px;
+      width:100%;
+    }
+  </style>
+</head>
+<body>
+  <header>Grokonpedia</header>
+  <main>
+    <div class="grokon-container">
+      <h1>Grokon</h1>
+      <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Écris ici...">
+        <button id="sendBtn">Envoyer</button>
+      </div>
+    </div>
+
+    <!-- Blocs horizontaux -->
+    <div class="blocs-container">
+      <div class="bloc">
+        Explorez le Grokonpedia : <a href="dictionnaire/index.html">Dictionnaire de mots farfelus</a>
+        <p>Explorez les définitions les plus déjantées.</p>
+      </div>
+      <div class="bloc">
+        Explorez le Grokonpedia : <a href="expressions/index.html">Expressions de partout au Québec</a>
+        <p>Découvrez des expressions locales savoureuses.</p>
+      </div>
+      <div class="bloc">
+        Explorez le Grokonpedia : <a href="phaune-phlore/index.html">🐛 Phaune et Phlore 🌿</a>
+        <p>Bibittes, plantes et virus farfelus du grand nord-ouest.</p>
+      </div>
+      <div class="bloc">
+        <a href="Conneries/index.html">Le Coin des Conneries</a>
+        <p>Pour les érudits qui déconnent à plein poumons.</p>
+      </div>
+    </div>
+
+  </main>
+  <footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique. En construction.</footer>
+
+<script src="grokon.js"></script>
+
+<!-- Pixel invisible compteur, privé -->
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=grokonpedia.net&count_bg=%23ffffff00&title_bg=%23ffffff00&icon=&icon_color=%23FFFFFF00&title=&edge_flat=false"
+     alt="" style="width:1px; height:1px; opacity:0;">
+<script>
+  console.log('Visites : ok'); // ça sert juste à tester si le script marche
+</script>
+
+</body>
+</html><!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grokonpedia</title>
   <script data-goatcounter="https://grokonpedia.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
   <style>
