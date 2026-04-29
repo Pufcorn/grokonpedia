@@ -5,66 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Expressions de partout au Québec - Grokonpedia</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background-color: #2b2b2b;
-      font-family: sans-serif;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header {
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 20px;
-    }
-    .expression {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #555;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 8px 0;
-      width: 90%;
-      max-width: 600px;
-    }
-    .expression strong {
-      color: #4169e1 !important;
-    }
-    footer {
-      width: 100%;
-      padding: 10px;
-      text-align: center;
-      color: #9b9b9b;
-      font-size: 0.85rem;
-    }
-    a {
-      color: #ffdd57;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    body { margin: 0; padding: 0; min-height: 100vh; background-color: #080808; font-family: sans-serif; color: #ffffff; display: flex; flex-direction: column; align-items: center; }
+    canvas#etoiles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    header { position: relative; z-index: 1; width: 100%; padding: 20px; text-align: center; font-size: 2rem; font-weight: bold; border-bottom: 1px solid rgba(65,105,225,0.15); }
+    header a { color: #ffffff; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    main { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; padding: 20px; }
+    .expression { background: rgba(255,255,255,0.04); border: 1px solid #444; border-radius: 10px; padding: 10px; margin: 8px 0; width: 90%; max-width: 600px; }
+    .expression strong { color: #4169e1; }
+    footer { position: relative; z-index: 1; width: 100%; padding: 10px; text-align: center; color: #555; font-size: 0.85rem; border-top: 1px solid rgba(65,105,225,0.1); }
+    a { color: #ffdd57; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <header>Expressions de partout au Québec</header>
-  <main>
-    <!-- Expressions originales -->
+<canvas id="etoiles"></canvas>
+<header><a href="../index.html">Grokonpedia</a> — Expressions de partout au Québec</header>
+<main>
     <div class="expression"><strong>Aller à NOWHERE :</strong> Partir sans destination fixe, profiter du moment.</div>
-    <div class="expression"><strong>Aller aux vies d'anges de la plous belle</strong> (explession réginald) — Rendre l'utilité véridique d'une inutilité.</div>
     <div class="expression"><strong>Air loose :</strong> Points bonis pour permettre une escapade ou sortie entre amis.</div>
     <div class="expression"><strong>Avoir le trou du cul en dessous du bras :</strong> Être totalement fatigué.</div>
     <div class="expression"><strong>Cassé comme un clou :</strong> Portefeuille vide, sans argent.</div>
@@ -72,7 +30,6 @@
     <div class="expression"><strong>C'est le bout de la marde :</strong> Le comble, n'importe quoi.</div>
     <div class="expression"><strong>Cousin de la fesse gauche :</strong> Terme humoristique, mieux que « cousin d'entre les deux fesses ».</div>
     <div class="expression"><strong>Décrottage corporel :</strong> Nettoyage complet d'un individu malpropre.</div>
-    <div class="expression"><strong>Face de bouette :</strong> Insulte tendre-méprisante désignant quelqu'un qui a l'air aussi vif qu'une flaque de boue séchée au bord du rang. Peut aussi s'appliquer au lendemain de veille quand ton miroir te renvoie l'image d'un type qui a dormi dans le fossé.</div>
     <div class="expression"><strong>Face de dessous de bras :</strong> Très laid, désagréable à regarder.</div>
     <div class="expression"><strong>Fou comme de la marde :</strong> Être complètement débile ou hilarant.</div>
     <div class="expression"><strong>Frais chié :</strong> Se dit d'une personne prétentieuse ou trop frimeuse.</div>
@@ -85,8 +42,6 @@
     <div class="expression"><strong>Patente à gosse :</strong> Objet quelconque sur lequel on ne connaît pas le nom exact.</div>
     <div class="expression"><strong>Péter une coche :</strong> Monter de lait, se fâcher, se défouler.</div>
     <div class="expression"><strong>Piquer une fouille :</strong> Tomber ou se casser d'une manière spectaculaire.</div>
-    <div class="expression"><strong>"Quand l'envie de ping-pong, j'prends ma raquette pis j'va jouer avec mon moineau" :</strong> Expression masturbatoire-sportive.</div>
-    <div class="expression"><strong>Rose des vents nauséabonds</strong> (Exp. nocive) — Instrument de navigation corporelle indiquant la provenance des effluves... Du nord, le tavernier. Du sud, le chaleureux. À l'est, l'étireur. À l'ouest, Oups, l'échappé.</div>
     <div class="expression"><strong>Se fendre le cul en quatre :</strong> Faire tout son possible, donner le maximum.</div>
     <div class="expression"><strong>Souper pour pousser :</strong> Manger dans l'optique d'aller à la selle.</div>
     <div class="expression"><strong>Suer comme un cochon :</strong> Transpirer abondamment.</div>
@@ -97,7 +52,6 @@
     <div class="expression"><strong>Les Québécois ne se fâchent pas, y se mettent en crisse</strong></div>
     <div class="expression"><strong>Les Québécois ne te battent pas, y t'en calice une</strong></div>
     <div class="expression"><strong>Les Québécois ne congédient pas, y te crise dehors</strong></div>
-    <!-- Nouvelles expressions de laparlure.com -->
     <div class="expression"><strong>Air Lousse :</strong> Points accumulés quand le conjoint sort avec des amis, permettant une sortie future.</div>
     <div class="expression"><strong>Aller aux touffes :</strong> Aller aux danseuses.</div>
     <div class="expression"><strong>Aller branler la queue du Mammouth :</strong> Procrastiner, ne rien faire de ce qui est demandé.</div>
@@ -152,7 +106,35 @@
     <div class="expression"><strong>Suer comme une pute à l'église :</strong> Transpirer abondamment à cause du stress, de la nervosité ou de la culpabilité.</div>
     <div class="expression"><strong>Turbo-tabarnak :</strong> Être une coche de plus qu'en tabarnak, donc encore plus en colère.</div>
     <div class="expression"><strong>Ziziller :</strong> Le bruit émis par un Français qui essaie de parler en anglais.</div>
-  </main>
-  <footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique.</footer>
+</main>
+<footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique.</footer>
+<script>
+(function() {
+  const canvas = document.getElementById('etoiles');
+  const ctx = canvas.getContext('2d');
+  let etoiles = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function initEtoiles() {
+    etoiles = [];
+    for (let i = 0; i < 180; i++) {
+      etoiles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.2+0.2, alpha: Math.random()*0.7+0.1, vitesse: Math.random()*0.4+0.1, dir: Math.random()>0.5?1:-1 });
+    }
+  }
+  function dessiner() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    etoiles.forEach(e => {
+      e.alpha += 0.003 * e.dir * e.vitesse;
+      if (e.alpha > 0.85 || e.alpha < 0.05) e.dir *= -1;
+      ctx.beginPath();
+      ctx.arc(e.x, e.y, e.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(200,215,255,' + e.alpha + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(dessiner);
+  }
+  resize(); initEtoiles(); dessiner();
+  window.addEventListener('resize', () => { resize(); initEtoiles(); });
+})();
+</script>
 </body>
 </html>
