@@ -3,95 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Le Coin des Conneries</title>
+  <title>Le Coin des Conneries - Grokonpedia</title>
   <style>
-    body {
-      margin:0;
-      padding:0;
-      min-height:100vh;
-      background-color:#2b2b2b;
-      font-family:sans-serif;
-      color:#fff;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      padding-top:40px;
-    }
-    h1 {
-      font-size:2.5rem;
-      margin-bottom:40px;
-      text-align:center;
-    }
-    .blocs-container {
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-      width:100%;
-      max-width:900px;
-      padding:0 20px;
-    }
-    .bloc {
-      border:1px solid #ccc;
-      border-radius:12px;
-      padding:20px;
-      width:250px;
-      text-align:center;
-      background:#333;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .bloc:hover {
-      transform:scale(1.05);
-      background:#444;
-    }
-    .bloc button {
-      padding:15px 20px;
-      font-size:1.1rem;
-      border-radius:10px;
-      border:none;
-      background:#555;
-      color:#fff;
-      cursor:pointer;
-      width:100%;
-      margin-top:10px;
-    }
-    .bloc button:hover {
-      background:#777;
-    }
-    .bloc p {
-      margin-top:10px;
-      font-size:0.95rem;
-      color:#ddd;
-    }
-    a {
-      text-decoration:none;
-      color:inherit;
-    }
+    body { margin: 0; padding: 0; min-height: 100vh; background-color: #080808; font-family: sans-serif; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 40px; }
+    canvas#etoiles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    header { position: relative; z-index: 1; width: 100%; padding: 20px; text-align: center; font-size: 2rem; font-weight: bold; border-bottom: 1px solid rgba(65,105,225,0.15); margin-bottom: 30px; }
+    header a { color: #ffffff; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    h1 { position: relative; z-index: 1; font-size: 2.2rem; margin-bottom: 40px; text-align: center; }
+    .blocs-container { position: relative; z-index: 1; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; width: 100%; max-width: 900px; padding: 0 20px; }
+    .bloc { border: 1px solid #444; border-radius: 12px; padding: 20px; width: 220px; text-align: center; background: rgba(255,255,255,0.04); transition: transform 0.2s, background 0.2s; }
+    .bloc:hover { transform: scale(1.05); background: rgba(65,105,225,0.07); }
+    .bloc p { font-size: 0.95rem; color: #cccccc; margin: 0 0 12px; }
+    .bloc button { padding: 12px 16px; font-size: 1rem; border-radius: 10px; border: 1px solid rgba(65,105,225,0.4); background: rgba(65,105,225,0.15); color: #fff; cursor: pointer; width: 100%; transition: background 0.2s; }
+    .bloc button:hover { background: rgba(65,105,225,0.35); }
+    footer { position: relative; z-index: 1; width: 100%; padding: 10px; text-align: center; color: #555; font-size: 0.85rem; border-top: 1px solid rgba(65,105,225,0.1); margin-top: 40px; }
+    a { text-decoration: none; color: inherit; }
   </style>
 </head>
 <body>
-  <h1>Le Coin des Conneries</h1>
-  <div class="blocs-container">
-    <div class="bloc">
-      <p>Jeux de cartes gratuits pour se détendre.</p>
-      <a href="https://www.jeu-du-solitaire.com/" target="_blank">
-        <button>Jeux de cartes gratuits</button>
-      </a>
-    </div>
-    <div class="bloc">
-      <p>Jeux rétro cuculs à l’ancienne.</p>
-      <a href="https://www.silvergames.com/fr/asteroids" target="_blank">
-        <button>Jeux rétros cuculs</button>
-      </a>
-    </div>
-    <div class="bloc">
-      <p>Pour les érudits qui veulent péter un peu.</p>
-      <a href="https://fart-machine.com/" target="_blank">
-        <button>Site de conneries diverses</button>
-      </a>
-    </div>
+<canvas id="etoiles"></canvas>
+<header><a href="../index.html">Grokonpedia</a></header>
+<h1>Le Coin des Conneries</h1>
+<div class="blocs-container">
+  <div class="bloc">
+    <p>Jeux de cartes gratuits pour se détendre.</p>
+    <a href="https://www.jeu-du-solitaire.com/" target="_blank">
+      <button>Jeux de cartes gratuits</button>
+    </a>
   </div>
+  <div class="bloc">
+    <p>Jeux rétro cuculs à l'ancienne.</p>
+    <a href="https://www.silvergames.com/fr/asteroids" target="_blank">
+      <button>Jeux rétros cuculs</button>
+    </a>
+  </div>
+  <div class="bloc">
+    <p>Pour les érudits qui veulent péter un peu.</p>
+    <a href="https://fart-machine.com/" target="_blank">
+      <button>Site de conneries diverses</button>
+    </a>
+  </div>
+</div>
+<footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique. En construction.</footer>
+<script>
+(function() {
+  const canvas = document.getElementById('etoiles');
+  const ctx = canvas.getContext('2d');
+  let etoiles = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function initEtoiles() {
+    etoiles = [];
+    for (let i = 0; i < 180; i++) {
+      etoiles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.2+0.2, alpha: Math.random()*0.7+0.1, vitesse: Math.random()*0.4+0.1, dir: Math.random()>0.5?1:-1 });
+    }
+  }
+  function dessiner() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    etoiles.forEach(e => {
+      e.alpha += 0.003 * e.dir * e.vitesse;
+      if (e.alpha > 0.85 || e.alpha < 0.05) e.dir *= -1;
+      ctx.beginPath();
+      ctx.arc(e.x, e.y, e.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(200,215,255,' + e.alpha + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(dessiner);
+  }
+  resize(); initEtoiles(); dessiner();
+  window.addEventListener('resize', () => { resize(); initEtoiles(); });
+})();
+</script>
 </body>
 </html>
-
