@@ -5,501 +5,406 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dictionnaire joual - Grokonpedia</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background-color: #2b2b2b;
-      font-family: sans-serif;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header {
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px;
-      padding: 10px 20px 20px;
-      max-width: 700px;
-    }
-    nav a {
-      color: #ffdd57;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-      padding: 4px 8px;
-      border: 1px solid #555;
-      border-radius: 6px;
-    }
-    nav a:hover {
-      background: rgba(255,255,255,0.1);
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 10px 20px 40px;
-    }
-    .lettre-section {
-      width: 90%;
-      max-width: 700px;
-      margin: 20px 0 10px;
-    }
-    .lettre-titre {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffdd57;
-      border-bottom: 2px solid #555;
-      padding-bottom: 6px;
-      margin-bottom: 4px;
-    }
-    .lettre-desc {
-      color: #aaaaaa;
-      font-style: italic;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-    .mot {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #555;
-      border-radius: 10px;
-      padding: 10px 14px;
-      margin: 6px 0;
-      width: 100%;
-    }
-    .mot strong {
-      color: #4169e1;
-    }
-    footer {
-      width: 100%;
-      padding: 10px;
-      text-align: center;
-      color: #9b9b9b;
-      font-size: 0.85rem;
-    }
+    body { margin: 0; padding: 0; min-height: 100vh; background-color: #080808; font-family: sans-serif; color: #ffffff; display: flex; flex-direction: column; align-items: center; }
+    canvas#etoiles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    header { position: relative; z-index: 1; width: 100%; padding: 20px; text-align: center; font-size: 2rem; font-weight: bold; border-bottom: 1px solid rgba(65,105,225,0.15); }
+    header a { color: #ffffff; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    nav { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 10px 20px 20px; max-width: 700px; }
+    nav a { color: #ffdd57; text-decoration: none; font-size: 1.2rem; font-weight: bold; padding: 4px 8px; border: 1px solid #444; border-radius: 6px; }
+    nav a:hover { background: rgba(255,255,255,0.1); }
+    main { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; padding: 10px 20px 40px; }
+    .lettre-section { width: 90%; max-width: 700px; margin: 20px 0 10px; }
+    .lettre-titre { font-size: 2rem; font-weight: bold; color: #ffdd57; border-bottom: 2px solid #333; padding-bottom: 6px; margin-bottom: 4px; }
+    .lettre-desc { color: #888; font-style: italic; font-size: 0.9rem; margin-bottom: 10px; }
+    .mot { background: rgba(255,255,255,0.04); border: 1px solid #444; border-radius: 10px; padding: 10px 14px; margin: 6px 0; width: 100%; }
+    .mot strong { color: #4169e1; }
+    footer { position: relative; z-index: 1; width: 100%; padding: 10px; text-align: center; color: #555; font-size: 0.85rem; border-top: 1px solid rgba(65,105,225,0.1); }
     a { color: #ffdd57; text-decoration: none; }
     a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <header>Dictionnaire joual - Grokonpedia</header>
-  <nav>
-    <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a>
-    <a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a>
-    <a href="#I">I</a><a href="#J">J</a><a href="#K">K</a><a href="#L">L</a>
-    <a href="#M">M</a><a href="#N">N</a><a href="#O">O</a><a href="#P">P</a>
-    <a href="#Q">Q</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
-    <a href="#U">U</a><a href="#V">V</a><a href="#W">W</a><a href="#X">X</a>
-    <a href="#Y">Y</a><a href="#Z">Z</a>
-  </nav>
-  <main>
+<canvas id="etoiles"></canvas>
+<header><a href="../index.html">Grokonpedia</a></header>
+<nav>
+  <a href="#A">A</a><a href="#B">B</a><a href="#C">C</a><a href="#D">D</a>
+  <a href="#E">E</a><a href="#F">F</a><a href="#G">G</a><a href="#H">H</a>
+  <a href="#I">I</a><a href="#J">J</a><a href="#K">K</a><a href="#L">L</a>
+  <a href="#M">M</a><a href="#N">N</a><a href="#O">O</a><a href="#P">P</a>
+  <a href="#Q">Q</a><a href="#R">R</a><a href="#S">S</a><a href="#T">T</a>
+  <a href="#U">U</a><a href="#V">V</a><a href="#W">W</a><a href="#X">X</a>
+  <a href="#Y">Y</a><a href="#Z">Z</a>
+</nav>
+<main>
 
-    <!-- A -->
-    <div class="lettre-section" id="A">
-      <div class="lettre-titre">A</div>
-      <div class="lettre-desc">Première lettre de l'alphabet. Elle précède souvent un éternuement. S'agence bien avec un bâillement d'ennui ou de fatigue.</div>
-      <div class="mot"><strong>Abitibi</strong> - Région mythique faite de marécages, de bibittes, de bouette pis d'opinions tranchantes.</div>
-      <div class="mot"><strong>Abrier</strong> - Couvrir ou protéger du froid, souvent de façon exagérée. EX : Abrier la piscine pour l'hiver... en août.</div>
-      <div class="mot"><strong>Achaler</strong> - Énerver, déranger, gosser quelqu'un jusqu'à ce qu'il sacre.</div>
-      <div class="mot"><strong>Accroire</strong> - Mensonge que l'on croit dur comme fer. Se faire des accroires : croire à ses propres mensonges.</div>
-      <div class="mot"><strong>Adon</strong> - Temps bien synchronisé, quelque chose qui se passe au bon moment. EX : « Tout un adon! »</div>
-      <div class="mot"><strong>Agace (-pissette)</strong> - Individu dont l'importunité équivaut à celle de l'industrie des notices légales.</div>
-      <div class="mot"><strong>Aiguiser</strong> - Rendre plus tranchant, ou préparer quelqu'un à réagir avec une remarque bien placée.</div>
-      <div class="mot"><strong>Aimailler</strong> - Orner ou décorer grossièrement, parfois avec excès.</div>
-      <div class="mot"><strong>Amasseux / Amasseuse</strong> - Personne qui ramasse tout pis n'importe quoi, souvent pour rien. EX : « C'est pas un collectionneur... c'est un amasseux de cochonneries! »</div>
-      <div class="mot"><strong>Amarrer</strong> - Attacher solidement, ou figer quelqu'un dans une situation. EX : « Amarre ta chaloupe, le vent pogne! »</div>
-      <div class="mot"><strong>Aplaventristiquement</strong> - Façon d'agir ou d'échouer qui implique de se péter la gueule avec classe.</div>
-      <div class="mot"><strong>Apparater</strong> - Monter ou assembler rapidement quelque chose, souvent de bric et de broc.</div>
-      <div class="mot"><strong>Apoitre</strong> - Personne maladroite ou niaiseuse dans ses gestes.</div>
-      <div class="mot"><strong>Asecouer</strong> - Secouer énergiquement, que ce soit un objet ou quelqu'un. EX : « Asecoue-toi un peu, t'es dans la lune! »</div>
-      <div class="mot"><strong>Astiner</strong> - Taquiner, pousser jusqu'à en devenir insistant.</div>
-      <div class="mot"><strong>Atoca</strong> - Canneberge sauvage du Québec, souvent utilisée dans les recettes traditionnelles.</div>
-      <div class="mot"><strong>Attif</strong> - Tenue vestimentaire ou accoutrement, souvent jugé exagérée ou mal assorti.</div>
-      <div class="mot"><strong>Avachir</strong> - Ramollir ou perdre son énergie, s'affaisser. EX : « Après souper, y s'est avachi dans le divan. »</div>
-      <div class="mot"><strong>Avaler sa gomme</strong> - Se retrouver surpris au point de plus savoir quoi dire ou faire.</div>
-      <div class="mot"><strong>Aviner</strong> - Imprégner d'alcool ou enivrer. EX : « Y s'est aviné ben avant l'party. »</div>
-      <div class="mot"><strong>Avitailleux / Avitailleuse</strong> - Celui ou celle qui s'empresse de remplir les provisions, souvent à l'excès.</div>
-    </div>
+  <div class="lettre-section" id="A">
+    <div class="lettre-titre">A</div>
+    <div class="lettre-desc">Première lettre de l'alphabet. Elle précède souvent un éternuement. S'agence bien avec un bâillement d'ennui ou de fatigue.</div>
+    <div class="mot"><strong>Abitibi</strong> - Région mythique faite de marécages, de bibittes, de bouette pis d'opinions tranchantes.</div>
+    <div class="mot"><strong>Abrier</strong> - Couvrir ou protéger du froid, souvent de façon exagérée. EX : Abrier la piscine pour l'hiver... en août.</div>
+    <div class="mot"><strong>Achaler</strong> - Énerver, déranger, gosser quelqu'un jusqu'à ce qu'il sacre.</div>
+    <div class="mot"><strong>Accroire</strong> - Mensonge que l'on croit dur comme fer. Se faire des accroires : croire à ses propres mensonges.</div>
+    <div class="mot"><strong>Adon</strong> - Temps bien synchronisé, quelque chose qui se passe au bon moment. EX : « Tout un adon! »</div>
+    <div class="mot"><strong>Agace (-pissette)</strong> - Individu dont l'importunité équivaut à celle de l'industrie des notices légales.</div>
+    <div class="mot"><strong>Aiguiser</strong> - Rendre plus tranchant, ou préparer quelqu'un à réagir avec une remarque bien placée.</div>
+    <div class="mot"><strong>Aimailler</strong> - Orner ou décorer grossièrement, parfois avec excès.</div>
+    <div class="mot"><strong>Amasseux / Amasseuse</strong> - Personne qui ramasse tout pis n'importe quoi, souvent pour rien. EX : « C'est pas un collectionneur... c'est un amasseux de cochonneries! »</div>
+    <div class="mot"><strong>Amarrer</strong> - Attacher solidement, ou figer quelqu'un dans une situation. EX : « Amarre ta chaloupe, le vent pogne! »</div>
+    <div class="mot"><strong>Aplaventristiquement</strong> - Façon d'agir ou d'échouer qui implique de se péter la gueule avec classe.</div>
+    <div class="mot"><strong>Apparater</strong> - Monter ou assembler rapidement quelque chose, souvent de bric et de broc.</div>
+    <div class="mot"><strong>Apoitre</strong> - Personne maladroite ou niaiseuse dans ses gestes.</div>
+    <div class="mot"><strong>Asecouer</strong> - Secouer énergiquement, que ce soit un objet ou quelqu'un. EX : « Asecoue-toi un peu, t'es dans la lune! »</div>
+    <div class="mot"><strong>Astiner</strong> - Taquiner, pousser jusqu'à en devenir insistant.</div>
+    <div class="mot"><strong>Atoca</strong> - Canneberge sauvage du Québec, souvent utilisée dans les recettes traditionnelles.</div>
+    <div class="mot"><strong>Attif</strong> - Tenue vestimentaire ou accoutrement, souvent jugé exagérée ou mal assorti.</div>
+    <div class="mot"><strong>Avachir</strong> - Ramollir ou perdre son énergie, s'affaisser. EX : « Après souper, y s'est avachi dans le divan. »</div>
+    <div class="mot"><strong>Avaler sa gomme</strong> - Se retrouver surpris au point de plus savoir quoi dire ou faire.</div>
+    <div class="mot"><strong>Aviner</strong> - Imprégner d'alcool ou enivrer. EX : « Y s'est aviné ben avant l'party. »</div>
+    <div class="mot"><strong>Avitailleux / Avitailleuse</strong> - Celui ou celle qui s'empresse de remplir les provisions, souvent à l'excès.</div>
+  </div>
 
-    <!-- B -->
-    <div class="lettre-section" id="B">
-      <div class="lettre-titre">B</div>
-      <div class="lettre-desc">Deuxième lettre de l'alphabet. Suivie de « r » à répétition, fait dire qu'il fait très froid. EX : Brrrrrrrr, câliss qui fait frette!</div>
-      <div class="mot"><strong>Babord</strong> (n.m.) — C'est la direction de virer de bord, mais à tribord, lors de beuveries non autorisées par le Cap'taine Haddock. Sans Rhum pour le mêler encore plus que lorsqu'il est saoul à la table de la cuisinette dans la cale.</div>
-      <div class="mot"><strong>Babouner</strong> - Faire du boudin, bouder, chialer sans raison valable. EX : « Hooon, l'ami baboune car je lui ai pas répondu tout de suite... »</div>
-      <div class="mot"><strong>Backer</strong> - Soutenir quelqu'un (souvent avec du cash), ou prêter sans jamais revoir une cenne. EX : « J'ai backé mon chum pour son char... y s'est poussé avec! »</div>
-      <div class="mot"><strong>Backstop</strong> - Barricade en grillage pour arrêter les balles au baseball.</div>
-      <div class="mot"><strong>Ballounne</strong> - Ballon d'enfant, personne qui a trop bu, ou flatulent en attente d'explosion. EX : « L'oncle Roger est sur la ballounne! »</div>
-      <div class="mot"><strong>Bar</strong> - Établissement pour boire (et parfois se battre). EX : « Chu allé au bar pis j'suis revenu avec un bar dans l'estomac! »</div>
-      <div class="mot"><strong>Baragouiner</strong> - Parler tout croche dans une langue inconnue. EX : « À Cuba j'baragouinais en espagnol pis y m'ont donné du savon au lieu d'la bière. »</div>
-      <div class="mot"><strong>Barré</strong> - Verrouillé, fermé à clé. EX : « La porte est barrée! J'suis pogné dehors avec ma bière... »</div>
-      <div class="mot"><strong>Bâtard</strong> - Mélangé, compliqué ou étrange. EX : « Ce diagramme-là? C'est bin bâtard ça! »</div>
-      <div class="mot"><strong>Bavasse</strong> - Personne qui parle pour rien dire ou qui bave littéralement. EX : « Ferme ta bavasse, y mouille déjà assez dehors! »</div>
-      <div class="mot"><strong>Bécosse</strong> - Toilette extérieure, cabane en bois avec araignées pis courant d'air douteux.</div>
-      <div class="mot"><strong>Ben là!</strong> - Interjection de surprise, d'indignation ou de découragement. EX : « Ben là! Tu vas pas mettre ça dans l'fond d'la mijoteuse! »</div>
-      <div class="mot"><strong>La Bibitche</strong> (n.f.) — La p'tite torbinouche qui passe au travers des moustiquaires et mord en traîtresse sur une jointure, derrière les oreilles ou sur pied... C'est à cause d'elle que parfois, nous avons l'air d'une nouille à marcher en se gratouillant à des endroits bizarroïdes.</div>
-      <div class="mot"><strong>Bin</strong> - Abréviation de « bien ». EX : « Bin voyons donc! »</div>
-      <div class="mot"><strong>Bizounne</strong> - Mot d'enfant pour pénis. EX : « Arrête de gosser avec ta bizounne pis aide-moi donc! »</div>
-      <div class="mot"><strong>Bizounner</strong> - Bricoler rapidement dans le garage ou le cabanon.</div>
-      <div class="mot"><strong>Bobette</strong> - Sous-vêtement (souvent trop usé). EX : « Mes bobettes sont rendues transparentes, c'est des dentelles involontaires! »</div>
-      <div class="mot"><strong>Boss des bécosses</strong> - Quelqu'un qui pense avoir de l'autorité dans un micro-règne insignifiant.</div>
-      <div class="mot"><strong>Bouche à marde</strong> - Quelqu'un qui dit trop d'affaires inutiles, qui chiale ou qui calomnie.</div>
-      <div class="mot"><strong>Boucaner</strong> - Faire de la fumée. EX : « T'as boucané la cuisine avec ton toast calciné! »</div>
-      <div class="mot"><strong>Bouchonner</strong> - Se coincer dans le trafic ou dans une conversation qui va nulle part.</div>
-      <div class="mot"><strong>Bourrer (la face)</strong> - Manger comme un cochon, sans retenue. EX : « Je me suis bourré la face dans l'gâteau, y'en reste pus pantoute. »</div>
-      <div class="mot"><strong>Boute</strong> - Limite de tolérance physique ou mentale. EX : « J'suis à boute, y me reste juste l'énergie pour sacrer. »</div>
-      <div class="mot"><strong>Branleux</strong> - Personne molle, lente, pas décidée. EX : « Bouge, esti de branleux! On va rater le bus! »</div>
-    </div>
+  <div class="lettre-section" id="B">
+    <div class="lettre-titre">B</div>
+    <div class="lettre-desc">Deuxième lettre de l'alphabet. Suivie de « r » à répétition, fait dire qu'il fait très froid. EX : Brrrrrrrr, câliss qui fait frette!</div>
+    <div class="mot"><strong>Babouner</strong> - Faire du boudin, bouder, chialer sans raison valable. EX : « Hooon, l'ami baboune car je lui ai pas répondu tout de suite... »</div>
+    <div class="mot"><strong>Backer</strong> - Soutenir quelqu'un (souvent avec du cash), ou prêter sans jamais revoir une cenne. EX : « J'ai backé mon chum pour son char... y s'est poussé avec! »</div>
+    <div class="mot"><strong>Backstop</strong> - Barricade en grillage pour arrêter les balles au baseball.</div>
+    <div class="mot"><strong>Ballounne</strong> - Ballon d'enfant, personne qui a trop bu, ou flatulent en attente d'explosion. EX : « L'oncle Roger est sur la ballounne! »</div>
+    <div class="mot"><strong>Bar</strong> - Établissement pour boire (et parfois se battre). EX : « Chu allé au bar pis j'suis revenu avec un bar dans l'estomac! »</div>
+    <div class="mot"><strong>Baragouiner</strong> - Parler tout croche dans une langue inconnue. EX : « À Cuba j'baragouinais en espagnol pis y m'ont donné du savon au lieu d'la bière. »</div>
+    <div class="mot"><strong>Barré</strong> - Verrouillé, fermé à clé. EX : « La porte est barrée! J'suis pogné dehors avec ma bière... »</div>
+    <div class="mot"><strong>Bâtard</strong> - Mélangé, compliqué ou étrange. EX : « Ce diagramme-là? C'est bin bâtard ça! »</div>
+    <div class="mot"><strong>Bavasse</strong> - Personne qui parle pour rien dire ou qui bave littéralement. EX : « Ferme ta bavasse, y mouille déjà assez dehors! »</div>
+    <div class="mot"><strong>Bécosse</strong> - Toilette extérieure, cabane en bois avec araignées pis courant d'air douteux.</div>
+    <div class="mot"><strong>Ben là!</strong> - Interjection de surprise, d'indignation ou de découragement. EX : « Ben là! Tu vas pas mettre ça dans l'fond d'la mijoteuse! »</div>
+    <div class="mot"><strong>Bin</strong> - Abréviation de « bien ». EX : « Bin voyons donc! »</div>
+    <div class="mot"><strong>Bizounne</strong> - Mot d'enfant pour pénis. EX : « Arrête de gosser avec ta bizounne pis aide-moi donc! »</div>
+    <div class="mot"><strong>Bizounner</strong> - Bricoler rapidement dans le garage ou le cabanon.</div>
+    <div class="mot"><strong>Bobette</strong> - Sous-vêtement (souvent trop usé). EX : « Mes bobettes sont rendues transparentes, c'est des dentelles involontaires! »</div>
+    <div class="mot"><strong>Boss des bécosses</strong> - Quelqu'un qui pense avoir de l'autorité dans un micro-règne insignifiant.</div>
+    <div class="mot"><strong>Bouche à marde</strong> - Quelqu'un qui dit trop d'affaires inutiles, qui chiale ou qui calomnie.</div>
+    <div class="mot"><strong>Boucaner</strong> - Faire de la fumée. EX : « T'as boucané la cuisine avec ton toast calciné! »</div>
+    <div class="mot"><strong>Bouchonner</strong> - Se coincer dans le trafic ou dans une conversation qui va nulle part.</div>
+    <div class="mot"><strong>Bourrer (la face)</strong> - Manger comme un cochon, sans retenue. EX : « Je me suis bourré la face dans l'gâteau, y'en reste pus pantoute. »</div>
+    <div class="mot"><strong>Boute</strong> - Limite de tolérance physique ou mentale. EX : « J'suis à boute, y me reste juste l'énergie pour sacrer. »</div>
+    <div class="mot"><strong>Branleux</strong> - Personne molle, lente, pas décidée. EX : « Bouge, esti de branleux! On va rater le bus! »</div>
+  </div>
 
-    <!-- C -->
-    <div class="lettre-section" id="C">
-      <div class="lettre-titre">C</div>
-      <div class="lettre-desc">Troisième lettre de l'alphabet. À la sonorité douce avec une cédille ou presque rude sans cette dernière.</div>
-      <div class="mot"><strong>Caboche</strong> - L'enflure située au-dessus des épaules; autrement dit, la tête.</div>
-      <div class="mot"><strong>Câlice</strong> - Objet du vin de messe, utilisé comme gros blasphème au Québec.</div>
-      <div class="mot"><strong>Câlisser</strong> - Verbe dérivé du blasphème câlice.</div>
-      <div class="mot"><strong>Canter</strong> - Se coucher, s'étendre. EX : « Je suis brûlé bin raide, je vais me canter. »</div>
-      <div class="mot"><strong>Carteàrien</strong> (adj.) — Se dit d'une approche qui se prend pour du philo-contrôlo-pourien mais qui se fignole jusqu'à ce que ça marche pareil! Le grand con à Grokon approuve! 🤘🥃</div>
-      <div class="mot"><strong>Cave</strong> - Sous-sol aménagé; désigne aussi un individu sans cervelle.</div>
-      <div class="mot"><strong>Char</strong> - Automobile. EX : « Avec la corrosion au bout de quelques années, ça ressemble au char d'antan. »</div>
-      <div class="mot"><strong>Chauffrette</strong> - Petite fournaise ou radiateur dégageant de la chaleur.</div>
-      <div class="mot"><strong>Cheapette</strong> - Objet de qualité légère ou pas cher.</div>
-      <div class="mot"><strong>Chertichié</strong> (adj. mortlababine) — Terme phonétique avant tout, né de la douleur aiguë de s'être mordu la babine/lèvre par inadvertance. Car comme on sait tous que c'est tellement l'fun de le faire violentairement... La diction serait à corriger par écrit mais ce serait moche et poche à lire.</div>
-      <div class="mot"><strong>Chum</strong> - Copain, amoureux ou ami proche. EX : « Les chums sont à la brasserie en train de virer une méchante brosse. »</div>
-      <div class="mot"><strong>Chus</strong> - Je suis. EX : « Chus ben heureux! »</div>
-      <div class="mot"><strong>Colonne</strong> - Ce qui soutient une toiture; peut désigner une femme d'une lenteur cervicale excessive.</div>
-      <div class="mot"><strong>Couette</strong> - Couverture chaude ou édredon. Peut aussi désigner une mèche de cheveux.</div>
-      <div class="mot"><strong>Cravatologue</strong> - Personne portant généralement une cravate, souvent dans un rôle de parasite dirigeant.</div>
-      <div class="mot"><strong>Crétin</strong> - Cousin de l'idiot ou de l'imbécile.</div>
-      <div class="mot"><strong>Crétinage</strong> - Action de créer du crétin; même avec l'âge, le crétin demeure crétin.</div>
-    </div>
+  <div class="lettre-section" id="C">
+    <div class="lettre-titre">C</div>
+    <div class="lettre-desc">Troisième lettre de l'alphabet. À la sonorité douce avec une cédille ou presque rude sans cette dernière.</div>
+    <div class="mot"><strong>Caboche</strong> - L'enflure située au-dessus des épaules; autrement dit, la tête.</div>
+    <div class="mot"><strong>Câlice</strong> - Objet du vin de messe, utilisé comme gros blasphème au Québec.</div>
+    <div class="mot"><strong>Câlisser</strong> - Verbe dérivé du blasphème câlice.</div>
+    <div class="mot"><strong>Canter</strong> - Se coucher, s'étendre. EX : « Je suis brûlé bin raide, je vais me canter. »</div>
+    <div class="mot"><strong>Cave</strong> - Sous-sol aménagé; désigne aussi un individu sans cervelle.</div>
+    <div class="mot"><strong>Char</strong> - Automobile. EX : « Avec la corrosion au bout de quelques années, ça ressemble au char d'antan. »</div>
+    <div class="mot"><strong>Chauffrette</strong> - Petite fournaise ou radiateur dégageant de la chaleur.</div>
+    <div class="mot"><strong>Cheapette</strong> - Objet de qualité légère ou pas cher.</div>
+    <div class="mot"><strong>Chum</strong> - Copain, amoureux ou ami proche. EX : « Les chums sont à la brasserie en train de virer une méchante brosse. »</div>
+    <div class="mot"><strong>Chus</strong> - Je suis. EX : « Chus ben heureux! »</div>
+    <div class="mot"><strong>Colonne</strong> - Ce qui soutient une toiture; peut désigner une femme d'une lenteur cervicale excessive.</div>
+    <div class="mot"><strong>Couette</strong> - Couverture chaude ou édredon. Peut aussi désigner une mèche de cheveux.</div>
+    <div class="mot"><strong>Cravatologue</strong> - Personne portant généralement une cravate, souvent dans un rôle de parasite dirigeant.</div>
+    <div class="mot"><strong>Crétin</strong> - Cousin de l'idiot ou de l'imbécile.</div>
+    <div class="mot"><strong>Crétinage</strong> - Action de créer du crétin; même avec l'âge, le crétin demeure crétin.</div>
+  </div>
 
-    <!-- D -->
-    <div class="lettre-section" id="D">
-      <div class="lettre-titre">D</div>
-      <div class="lettre-desc">Quatrième lettre de l'alphabet. La plus utilisée par Homer Simpson. EX : Doh!</div>
-      <div class="mot"><strong>Date</strong> - Rendez-vous, prononcé à l'anglaise. EX : « J'ai une date avec la p'tite poupoune. »</div>
-      <div class="mot"><strong>Deal</strong> - Aubaine ou faveur. EX : « J'ai une deal pour toi. »</div>
-      <div class="mot"><strong>Débarque</strong> - Chute, se prendre une gamelle. EX : « J'ai piqué une débarque en bas de l'escalier. »</div>
-      <div class="mot"><strong>Débilos</strong> - Personne stupide ou débile. EX : « Le débilos humanus crétinius est bel et bien le premier sinistre du pays. »</div>
-      <div class="mot"><strong>Débiole conversationnel</strong> (n.m.) — L'individu qui se brûle la chandelle par les deux bouts pour essayer de survivre dans cette merdique Univers de Robots Insignifiants Articulés.</div>
-      <div class="mot"><strong>Déconcrissé</strong> - État d'être délabré, complètement démoli.</div>
-      <div class="mot"><strong>Déguerpir</strong> - Se pousser d'une situation embarrassante, se sauver.</div>
-      <div class="mot"><strong>Dégâtologue informatichien</strong> (n.inv.) — Celui ou celle qui besogne en informatique sur le hardware davantage que la logistique et se fait demander des trucs que tous les autres informaticiens ont viré du revers de la main. EX : "M'sieur, vous réparez un ordi inondé de vin?" / "Un portable dont mon ami a suggestivement régurgité directement sur le clavier?"</div>
-      <div class="mot"><strong>Dépanneur</strong> - Magasin du coin pour acheter un peu de tout hors des heures normales.</div>
-      <div class="mot"><strong>Disciple</strong> - Personne servant une autre, pratiquement un esclave.</div>
-      <div class="mot"><strong>Divaniser</strong> - S'étendre sur le divan en position fœtus pour végéter devant la télé.</div>
-      <div class="mot"><strong>Dominicave</strong> (n.m.) — Le petit cave du dimanche qui fait des conneries, des âneries, des stupidités, des imbécilités et d'autres synonymes croustillants.</div>
-      <div class="mot"><strong>Dominisaoulsol/e</strong> (*n.m.f.) — Le petit cave du dimanche qui a fumé trop d'herbe puis s'est échappé dans des liquides qui ramollissent l'intelligence existante. (grosse variation d'un individu à l'autre) Il se sent cave malgré qu'il demeure dans un saoul-sol. *nom macuféminin.</div>
-      <div class="mot"><strong>Down</strong> - Bas, déprime, moral à plat. EX : « Je me sens down, mes piles sont à plat... »</div>
-      <div class="mot"><strong>Drette</strong> - Droit, exact, en ligne. EX : « C'est drette, nous pouvons continuer. »</div>
-      <div class="mot"><strong>Dyslexy-faussièro-tempôrairius</strong> (n.f.) — Le fait enfarger du cerveau qui résulte en doigts fourchus formant des écrits bancals et un parler de travers. Phénomène paradoxal pouvant théoriquement se renverser à très court terme selon la recette secrète suivante : chocolat, euphorie, buzz, fatigue et un verre de Mon-Archie¹. La dyslexie a pas les ressources pour suivre ce cocktail-là. Effets non garantis. Résultats variables selon le chauchon. (¹ Le Mon-Archie : un ouiski monarchique Crown Royal du trône.) 🤘😄</div>
-    </div>
+  <div class="lettre-section" id="D">
+    <div class="lettre-titre">D</div>
+    <div class="lettre-desc">Quatrième lettre de l'alphabet. La plus utilisée par Homer Simpson. EX : Doh!</div>
+    <div class="mot"><strong>Date</strong> - Rendez-vous, prononcé à l'anglaise. EX : « J'ai une date avec la p'tite poupoune. »</div>
+    <div class="mot"><strong>Deal</strong> - Aubaine ou faveur. EX : « J'ai une deal pour toi. »</div>
+    <div class="mot"><strong>Débarque</strong> - Chute, se prendre une gamelle. EX : « J'ai piqué une débarque en bas de l'escalier. »</div>
+    <div class="mot"><strong>Débilos</strong> - Personne stupide ou débile. EX : « Le débilos humanus crétinius est bel et bien le premier sinistre du pays. »</div>
+    <div class="mot"><strong>Déconcrissé</strong> - État d'être délabré, complètement démoli.</div>
+    <div class="mot"><strong>Déguerpir</strong> - Se pousser d'une situation embarrassante, se sauver.</div>
+    <div class="mot"><strong>Dépanneur</strong> - Magasin du coin pour acheter un peu de tout hors des heures normales.</div>
+    <div class="mot"><strong>Disciple</strong> - Personne servant une autre, pratiquement un esclave.</div>
+    <div class="mot"><strong>Divaniser</strong> - S'étendre sur le divan en position fœtus pour végéter devant la télé.</div>
+    <div class="mot"><strong>Down</strong> - Bas, déprime, moral à plat. EX : « Je me sens down, mes piles sont à plat... »</div>
+    <div class="mot"><strong>Drette</strong> - Droit, exact, en ligne. EX : « C'est drette, nous pouvons continuer. »</div>
+  </div>
 
-    <!-- E -->
-    <div class="lettre-section" id="E">
-      <div class="lettre-titre">E</div>
-      <div class="lettre-desc">Cinquième lettre de l'alphabet.</div>
-      <div class="mot"><strong>Eau de poche</strong> (n.m.) — S'attribue aux 8 ou 9 sexes usuels d'aujourd'hui. Extraction du jus de sueur et de début de moisissures de la poche de hockey qui sent le mort quand elle est entrée à l'intérieur après les semaines passées dans la valise du char à -24°C.</div>
-      <div class="mot"><strong>Écarter</strong> - Perdre un objet. EX : « J'ai écarté la carte au camping... »</div>
-      <div class="mot"><strong>Écartiller</strong> - Écarter les jambes.</div>
-      <div class="mot"><strong>Écharogner</strong> - Déchiqueter ou découper en morceaux une matière quelconque.</div>
-      <div class="mot"><strong>Écœurantite (aigue)</strong> - Désarroi d'être écœuré d'une chose quelconque; être écœuré d'être écœuré.</div>
-      <div class="mot"><strong>Effouarer</strong> - S'étendre, s'affaler ou se coucher; le summum de la relaxation sur le divan en fin de soirée.</div>
-      <div class="mot"><strong>Égosser</strong> - Castration involontaire. EX : « Je me suis égossé une couille sur la barre transversale... OUCH! »</div>
-      <div class="mot"><strong>Évacher</strong> - Se coucher, s'étendre, se prélasser. EX : « Je m'évache sur le divan. »</div>
-    </div>
+  <div class="lettre-section" id="E">
+    <div class="lettre-titre">E</div>
+    <div class="lettre-desc">Cinquième lettre de l'alphabet.</div>
+    <div class="mot"><strong>Écarter</strong> - Perdre un objet. EX : « J'ai écarté la carte au camping... »</div>
+    <div class="mot"><strong>Écartiller</strong> - Écarter les jambes.</div>
+    <div class="mot"><strong>Écharogner</strong> - Déchiqueter ou découper en morceaux une matière quelconque.</div>
+    <div class="mot"><strong>Écœurantite (aigue)</strong> - Désarroi d'être écœuré d'une chose quelconque; être écœuré d'être écœuré.</div>
+    <div class="mot"><strong>Effouarer</strong> - S'étendre, s'affaler ou se coucher; le summum de la relaxation sur le divan en fin de soirée.</div>
+    <div class="mot"><strong>Égosser</strong> - Castration involontaire. EX : « Je me suis égossé une couille sur la barre transversale... OUCH! »</div>
+    <div class="mot"><strong>Évacher</strong> - Se coucher, s'étendre, se prélasser. EX : « Je m'évache sur le divan. »</div>
+  </div>
 
-    <!-- F -->
-    <div class="lettre-section" id="F">
-      <div class="lettre-titre">F</div>
-      <div class="lettre-desc">Sixième lettre de l'alphabet. EX : FTW!!!</div>
-      <div class="mot"><strong>Fâcher</strong> - Être en colère. EX : « Chus fâché, mon rendez-vous est annulé à la dernière minute... »</div>
-      <div class="mot"><strong>Faque</strong> - Ainsi, donc, par conséquence. EX : « Tu es laid faque reste près de moi, je parais plus beau. »</div>
-      <div class="mot"><strong>Fartd'eau</strong> (n.m.) — Celui qu'on croyait doux et expulsant sans conséquents mais il est l'humide du fond.</div>
-      <div class="mot"><strong>Fin / Fine</strong> - Gentil ou gentille.</div>
-      <div class="mot"><strong>Fitter</strong> - Ajuster. EX : « La pièce fitte pas dans l'emplacement. »</div>
-      <div class="mot"><strong>Flaque</strong> - Petite étendue d'eau, trou d'eau.</div>
-      <div class="mot"><strong>Foirer</strong> - Faire la fête. EX : « La fête nationale, j'ai foiré pis j'ai un de ces maux de tête... »</div>
-      <div class="mot"><strong>Fort</strong> - Boisson alcoolisée à fort %. EX : « Je suis fort, parfois je sens fort! »</div>
-      <div class="mot"><strong>Fric-frac-petro-fuck</strong> (dim.ins.cr.) — Le fric, la fracturation hydraulique, le pétrole puis fuck The cap'talist. 🖕</div>
-      <div class="mot"><strong>Frippé</strong> - Froissé; employé pour désigner un lendemain de brosse. EX : « Hé que je suis frippé ce matin! »</div>
-      <div class="mot"><strong>Frette</strong> - Très froid. EX : « -36°C. C'est frette en tabarnouche... »</div>
-      <div class="mot"><strong>Froque</strong> - Style de manteau délabré ou usé.</div>
-      <div class="mot"><strong>Fuckaillage</strong> - Temps perdu, impression de ne rien faire de bon.</div>
-      <div class="mot"><strong>Fucké</strong> - Tordu ou fou. EX : « Il porte un manteau d'hiver en été, il est fucké bin raide... »</div>
-      <div class="mot"><strong>Fuito-méthanolisant</strong> (adj.) — Est d'une part de la fuite subtile et inutile car rattrape l'olfactif immédiatement. Son augmentatif est fiiiiiuuuuuuiiiit 💨</div>
-    </div>
+  <div class="lettre-section" id="F">
+    <div class="lettre-titre">F</div>
+    <div class="lettre-desc">Sixième lettre de l'alphabet. EX : FTW!!!</div>
+    <div class="mot"><strong>Fâcher</strong> - Être en colère. EX : « Chus fâché, mon rendez-vous est annulé à la dernière minute... »</div>
+    <div class="mot"><strong>Faque</strong> - Ainsi, donc, par conséquence. EX : « Tu es laid faque reste près de moi, je parais plus beau. »</div>
+    <div class="mot"><strong>Fin / Fine</strong> - Gentil ou gentille.</div>
+    <div class="mot"><strong>Fitter</strong> - Ajuster. EX : « La pièce fitte pas dans l'emplacement. »</div>
+    <div class="mot"><strong>Flaque</strong> - Petite étendue d'eau, trou d'eau.</div>
+    <div class="mot"><strong>Foirer</strong> - Faire la fête. EX : « La fête nationale, j'ai foiré pis j'ai un de ces maux de tête... »</div>
+    <div class="mot"><strong>Fort</strong> - Boisson alcoolisée à fort %. EX : « Je suis fort, parfois je sens fort! »</div>
+    <div class="mot"><strong>Frippé</strong> - Froissé; employé pour désigner un lendemain de brosse. EX : « Hé que je suis frippé ce matin! »</div>
+    <div class="mot"><strong>Frette</strong> - Très froid. EX : « -36°C. C'est frette en tabarnouche... »</div>
+    <div class="mot"><strong>Froque</strong> - Style de manteau délabré ou usé.</div>
+    <div class="mot"><strong>Fuckaillage</strong> - Temps perdu, impression de ne rien faire de bon.</div>
+    <div class="mot"><strong>Fucké</strong> - Tordu ou fou. EX : « Il porte un manteau d'hiver en été, il est fucké bin raide... »</div>
+  </div>
 
-    <!-- G -->
-    <div class="lettre-section" id="G">
-      <div class="lettre-titre">G</div>
-      <div class="lettre-desc">Septième lettre de l'alphabet. Une des premières prononcées par un nouveau-né. EX : Gaaa gouuuu!</div>
-      <div class="mot"><strong>Gageure</strong> - Pari sur un enjeu.</div>
-      <div class="mot"><strong>Galerie</strong> - Perron ou balcon d'une habitation.</div>
-      <div class="mot"><strong>Game</strong> - Partie, joute ou courage. EX : « Tu n'es pas game de parler devant cette foule. »</div>
-      <div class="mot"><strong>Gaz</strong> - Combustible (essence) ou flatulences naturelles.</div>
-      <div class="mot"><strong>Gniochon</strong> - Personne idiote. EX : « Le gniochon arrose l'asphalte l'été et pelle sa pelouse l'hiver. »</div>
-      <div class="mot"><strong>Gommé</strong> - Amoché, souvent après une cuite. EX : « Que je suis gommé aujourd'hui... »</div>
-      <div class="mot"><strong>Gosses</strong> - Testicules.</div>
-      <div class="mot"><strong>Gougounne</strong> - Sandale de plage cheapette; peut aussi désigner un état d'être mou.</div>
-      <div class="mot"><strong>Graine</strong> - Semence de plante; ou engin reproducteur mâle.</div>
-      <div class="mot"><strong>Gratouille</strong> - Petite séance de grattage plaisante.</div>
-      <div class="mot"><strong>Greluche</strong> - Femme lente d'esprit, idiote.</div>
-      <div class="mot"><strong>Guidounne</strong> - Péripatéticienne ou personne se laissant taponner.</div>
-    </div>
+  <div class="lettre-section" id="G">
+    <div class="lettre-titre">G</div>
+    <div class="lettre-desc">Septième lettre de l'alphabet. Une des premières prononcées par un nouveau-né. EX : Gaaa gouuuu!</div>
+    <div class="mot"><strong>Gageure</strong> - Pari sur un enjeu.</div>
+    <div class="mot"><strong>Galerie</strong> - Perron ou balcon d'une habitation.</div>
+    <div class="mot"><strong>Game</strong> - Partie, joute ou courage. EX : « Tu n'es pas game de parler devant cette foule. »</div>
+    <div class="mot"><strong>Gaz</strong> - Combustible (essence) ou flatulences naturelles.</div>
+    <div class="mot"><strong>Gniochon</strong> - Personne idiote. EX : « Le gniochon arrose l'asphalte l'été et pelle sa pelouse l'hiver. »</div>
+    <div class="mot"><strong>Gommé</strong> - Amoché, souvent après une cuite. EX : « Que je suis gommé aujourd'hui... »</div>
+    <div class="mot"><strong>Gosses</strong> - Testicules.</div>
+    <div class="mot"><strong>Gougounne</strong> - Sandale de plage cheapette; peut aussi désigner un état d'être mou.</div>
+    <div class="mot"><strong>Graine</strong> - Semence de plante; ou engin reproducteur mâle.</div>
+    <div class="mot"><strong>Gratouille</strong> - Petite séance de grattage plaisante.</div>
+    <div class="mot"><strong>Greluche</strong> - Femme lente d'esprit, idiote.</div>
+    <div class="mot"><strong>Guidounne</strong> - Péripatéticienne ou personne se laissant taponner.</div>
+  </div>
 
-    <!-- H -->
-    <div class="lettre-section" id="H">
-      <div class="lettre-titre">H</div>
-      <div class="lettre-desc">Huitième lettre de l'alphabet. Aspirée, le H dissipe les idées noires.</div>
-      <div class="mot"><strong>Habit</strong> - Costard ou costume avec cravate.</div>
-      <div class="mot"><strong>Habitant</strong> - Paysan ou personne vivant dans une région reculée.</div>
-      <div class="mot"><strong>Hambourgeois</strong> - Burger, considéré comme malbouffe de chaîne.</div>
-      <div class="mot"><strong>Han / Hein / Hin</strong> - Simple interrogation, comme le « quoi » en français classique.</div>
-      <div class="mot"><strong>Hâte</strong> - « Avoir hâte » = attendre avec impatience ou espérance.</div>
-      <div class="mot"><strong>Helper</strong> - Aide au travail, apprenti ou passager dans une automobile.</div>
-    </div>
+  <div class="lettre-section" id="H">
+    <div class="lettre-titre">H</div>
+    <div class="lettre-desc">Huitième lettre de l'alphabet. Aspirée, le H dissipe les idées noires.</div>
+    <div class="mot"><strong>Habit</strong> - Costard ou costume avec cravate.</div>
+    <div class="mot"><strong>Habitant</strong> - Paysan ou personne vivant dans une région reculée.</div>
+    <div class="mot"><strong>Hambourgeois</strong> - Burger, considéré comme malbouffe de chaîne.</div>
+    <div class="mot"><strong>Han / Hein / Hin</strong> - Simple interrogation, comme le « quoi » en français classique.</div>
+    <div class="mot"><strong>Hâte</strong> - « Avoir hâte » = attendre avec impatience ou espérance.</div>
+    <div class="mot"><strong>Helper</strong> - Aide au travail, apprenti ou passager dans une automobile.</div>
+  </div>
 
-    <!-- I -->
-    <div class="lettre-section" id="I">
-      <div class="lettre-titre">I</div>
-      <div class="lettre-desc">Neuvième lettre de l'alphabet. Cri strident d'une demoiselle en peur.</div>
-      <div class="mot"><strong>Icitte</strong> - Ici. EX : « Drette icitte! »</div>
-      <div class="mot"><strong>Initialer</strong> - Apposer ses initiales sur un document.</div>
-      <div class="mot"><strong>Insécure</strong> - Insécurité ou quelque chose d'instable.</div>
-      <div class="mot"><strong>Itoo</strong> - Pareillement, aussi, de même. EX : « Moi itoo, j'en veux encore! »</div>
-    </div>
+  <div class="lettre-section" id="I">
+    <div class="lettre-titre">I</div>
+    <div class="lettre-desc">Neuvième lettre de l'alphabet. Cri strident d'une demoiselle en peur.</div>
+    <div class="mot"><strong>Icitte</strong> - Ici. EX : « Drette icitte! »</div>
+    <div class="mot"><strong>Initialer</strong> - Apposer ses initiales sur un document.</div>
+    <div class="mot"><strong>Insécure</strong> - Insécurité ou quelque chose d'instable.</div>
+    <div class="mot"><strong>Itoo</strong> - Pareillement, aussi, de même. EX : « Moi itoo, j'en veux encore! »</div>
+  </div>
 
-    <!-- J -->
-    <div class="lettre-section" id="J">
-      <div class="lettre-titre">J</div>
-      <div class="lettre-desc">Dixième lettre de l'alphabet.</div>
-      <div class="mot"><strong>Jack</strong> - Prénom courant; peut aussi désigner vulgairement une masturbation, ou un cric pour lever une voiture.</div>
-      <div class="mot"><strong>Jambette</strong> - Action de faire trébucher quelqu'un. EX : « Donner une jambette à son opposant, c'est chien mais légal. »</div>
-      <div class="mot"><strong>Jasette</strong> - Petite discussion légère et plaisante. EX : « Demain je te piquerai une jasette plus longuement. »</div>
-      <div class="mot"><strong>Jobine</strong> - Petit emploi sans grande importance.</div>
-      <div class="mot"><strong>Joual</strong> - Langage populaire, propre à la région d'origine.</div>
-      <div class="mot"><strong>Jugeotte</strong> - Jugement à la légère. EX : « Tu devrais te servir de ta jugeotte quelque peu... »</div>
-    </div>
+  <div class="lettre-section" id="J">
+    <div class="lettre-titre">J</div>
+    <div class="lettre-desc">Dixième lettre de l'alphabet.</div>
+    <div class="mot"><strong>Jack</strong> - Prénom courant; peut aussi désigner vulgairement une masturbation, ou un cric pour lever une voiture.</div>
+    <div class="mot"><strong>Jambette</strong> - Action de faire trébucher quelqu'un. EX : « Donner une jambette à son opposant, c'est chien mais légal. »</div>
+    <div class="mot"><strong>Jasette</strong> - Petite discussion légère et plaisante. EX : « Demain je te piquerai une jasette plus longuement. »</div>
+    <div class="mot"><strong>Jobine</strong> - Petit emploi sans grande importance.</div>
+    <div class="mot"><strong>Joual</strong> - Langage populaire, propre à la région d'origine.</div>
+    <div class="mot"><strong>Jugeotte</strong> - Jugement à la légère. EX : « Tu devrais te servir de ta jugeotte quelque peu... »</div>
+  </div>
 
-    <!-- K -->
-    <div class="lettre-section" id="K">
-      <div class="lettre-titre">K</div>
-      <div class="lettre-desc">Onzième lettre de l'alphabet. Remplace parfois « ok, oké, correct ».</div>
-      <div class="mot"><strong>Keke</strong> - Variante abrégée de « quelque ».</div>
-      <div class="mot"><strong>Kétaine</strong> - Vieillerie ou chose jugée de qualité inquiétante.</div>
-      <div class="mot"><strong>Kleenex</strong> - Mouchoirs, emprunté du nom de la compagnie.</div>
-      <div class="mot"><strong>Kodak</strong> - Appareil photo, emprunté de la compagnie.</div>
-    </div>
+  <div class="lettre-section" id="K">
+    <div class="lettre-titre">K</div>
+    <div class="lettre-desc">Onzième lettre de l'alphabet. Remplace parfois « ok, oké, correct ».</div>
+    <div class="mot"><strong>Keke</strong> - Variante abrégée de « quelque ».</div>
+    <div class="mot"><strong>Kétaine</strong> - Vieillerie ou chose jugée de qualité inquiétante.</div>
+    <div class="mot"><strong>Kleenex</strong> - Mouchoirs, emprunté du nom de la compagnie.</div>
+    <div class="mot"><strong>Kodak</strong> - Appareil photo, emprunté de la compagnie.</div>
+  </div>
 
-    <!-- L -->
-    <div class="lettre-section" id="L">
-      <div class="lettre-titre">L</div>
-      <div class="lettre-desc">Douzième lettre de l'alphabet.</div>
-      <div class="mot"><strong>Lâche</strong> - Personne paresseuse à l'excès, un bon à rien.</div>
-      <div class="mot"><strong>Laite</strong> - Chose laide.</div>
-      <div class="mot"><strong>Laveuse</strong> - Machine à laver le linge.</div>
-      <div class="mot"><strong>Lichage</strong> - Action de flatter une personne à l'excès, "téteux".</div>
-    </div>
+  <div class="lettre-section" id="L">
+    <div class="lettre-titre">L</div>
+    <div class="lettre-desc">Douzième lettre de l'alphabet.</div>
+    <div class="mot"><strong>Lâche</strong> - Personne paresseuse à l'excès, un bon à rien.</div>
+    <div class="mot"><strong>Laite</strong> - Chose laide.</div>
+    <div class="mot"><strong>Laveuse</strong> - Machine à laver le linge.</div>
+    <div class="mot"><strong>Lichage</strong> - Action de flatter une personne à l'excès, "téteux".</div>
+  </div>
 
-    <!-- M -->
-    <div class="lettre-section" id="M">
-      <div class="lettre-titre">M</div>
-      <div class="lettre-desc">Treizième lettre de l'alphabet. EX : Mmmmmm, c'est bon!</div>
-      <div class="mot"><strong>Maganer</strong> - Invoquer l'usure ou la maltraitance. EX : « Je suis tombé en vélo et je me suis magané un genou... »</div>
-      <div class="mot"><strong>Marabout</strong> - Boudeur; le marabout boude dans son coin.</div>
-      <div class="mot"><strong>Marde</strong> - Synonyme de merde.</div>
-      <div class="mot"><strong>Marde blanche</strong> - Neige à l'automne que l'on en a marre au printemps. EX : « La crisse de marde blanche, ce que j'ai hâte à l'été! »</div>
-      <div class="mot"><strong>Maringouin</strong> - Moustique fatiguant qui pique la tête endormie.</div>
-      <div class="mot"><strong>Médiacrité</strong> - Média public donnant de la désinformation sous une couche d'hypocrisie.</div>
-      <div class="mot"><strong>Mémérage</strong> - Bavardage, commérage, souvent dans le dos des autres.</div>
-      <div class="mot"><strong>Mémorium</strong> (n.m.) — Service funèbre rendu à un souvenir tellement loin qu'il a besoin d'être enterré dignement dans le fond du disque dur.</div>
-      <div class="mot"><strong>Merdia</strong> - Média médiocre lançant de la désinformation.</div>
-      <div class="mot"><strong>Merdical</strong> - Se rapporte au corps médical ou aux pharmaceutiques.</div>
-      <div class="mot"><strong>M$osophobie / Microssophobie</strong> (n.f.) — Le premier est la phobie de M$ en entier alors que le deuxième est une phobie de Microsoft et de la petite brindille de Bill Gates ensemble.</div>
-      <div class="mot"><strong>Mongol</strong> - Imbécile heureux ou tarla qui fait le con.</div>
-      <div class="mot"><strong>Monbrilitique</strong> (adj. Qualif.) — Il se regarde le nombril, se croit au-dessus de tout puis le reste est de la rien-du-tout.</div>
-      <div class="mot"><strong>Mosantonien</strong> - Régressif; qui se rapporte à Monsanto.</div>
-      <div class="mot"><strong>Motte</strong> - Ramassis d'herbe ou portefeuille bien rempli. EX : « Tu l'as la motte toi! »</div>
-      <div class="mot"><strong>Moumounne</strong> - Personne peureuse, toujours en crainte de tout.</div>
-      <div class="mot"><strong>Mouchtique à plombier</strong> — Espèce rare du Québec, reconnaissable à sa tendance à piquer dans le bas du dos, plus précisément dans la craque de founnes, expliquant ainsi l'origine mystérieuse du grattage de raie chez les Québécois. 😄</div>
-    </div>
+  <div class="lettre-section" id="M">
+    <div class="lettre-titre">M</div>
+    <div class="lettre-desc">Treizième lettre de l'alphabet. EX : Mmmmmm, c'est bon!</div>
+    <div class="mot"><strong>Maganer</strong> - Invoquer l'usure ou la maltraitance. EX : « Je suis tombé en vélo et je me suis magané un genou... »</div>
+    <div class="mot"><strong>Marabout</strong> - Boudeur; le marabout boude dans son coin.</div>
+    <div class="mot"><strong>Marde</strong> - Synonyme de merde.</div>
+    <div class="mot"><strong>Marde blanche</strong> - Neige à l'automne que l'on en a marre au printemps. EX : « La crisse de marde blanche, ce que j'ai hâte à l'été! »</div>
+    <div class="mot"><strong>Maringouin</strong> - Moustique fatiguant qui pique la tête endormie.</div>
+    <div class="mot"><strong>Médiacrité</strong> - Média public donnant de la désinformation sous une couche d'hypocrisie.</div>
+    <div class="mot"><strong>Mémérage</strong> - Bavardage, commérage, souvent dans le dos des autres.</div>
+    <div class="mot"><strong>Merdia</strong> - Média médiocre lançant de la désinformation.</div>
+    <div class="mot"><strong>Merdical</strong> - Se rapporte au corps médical ou aux pharmaceutiques.</div>
+    <div class="mot"><strong>Mongol</strong> - Imbécile heureux ou tarla qui fait le con.</div>
+    <div class="mot"><strong>Mosantonien</strong> - Régressif; qui se rapporte à Monsanto.</div>
+    <div class="mot"><strong>Motte</strong> - Ramassis d'herbe ou portefeuille bien rempli. EX : « Tu l'as la motte toi! »</div>
+    <div class="mot"><strong>Moumounne</strong> - Personne peureuse, toujours en crainte de tout.</div>
+  </div>
 
-    <!-- N -->
-    <div class="lettre-section" id="N">
-      <div class="lettre-titre">N</div>
-      <div class="lettre-desc">Quatorzième lettre de l'alphabet. Une des premières énoncées par un jeune enfant pour le fameux NON!</div>
-      <div class="mot"><strong>Nanane</strong> - Bonbon ou friandise.</div>
-      <div class="mot"><strong>Necker</strong> - Jeunes qui se pelotent; embrasser langoureusement.</div>
-      <div class="mot"><strong>Niaiseux</strong> - Qui dit des niaiseries, âneries.</div>
-      <div class="mot"><strong>Concombre</strong> - Humain que l'on peut qualifier de... concombre.</div>
-    </div>
+  <div class="lettre-section" id="N">
+    <div class="lettre-titre">N</div>
+    <div class="lettre-desc">Quatorzième lettre de l'alphabet. Une des premières énoncées par un jeune enfant pour le fameux NON!</div>
+    <div class="mot"><strong>Nanane</strong> - Bonbon ou friandise.</div>
+    <div class="mot"><strong>Necker</strong> - Jeunes qui se pelotent; embrasser langoureusement.</div>
+    <div class="mot"><strong>Niaiseux</strong> - Qui dit des niaiseries, âneries.</div>
+    <div class="mot"><strong>Concombre</strong> - Humain que l'on peut qualifier de... concombre.</div>
+  </div>
 
-    <!-- O -->
-    <div class="lettre-section" id="O">
-      <div class="lettre-titre">O</div>
-      <div class="lettre-desc">Quinzième lettre de l'alphabet.</div>
-      <div class="mot"><strong>Officiel</strong> - Validation d'une action. EX : « Je vais te crisser une volée, c'est officiel! »</div>
-      <div class="mot"><strong>Opener</strong> - Ouvre-bouteille ou décapsuleur.</div>
-      <div class="mot"><strong>Ostination</strong> - Déformation de "obstination".</div>
-      <div class="mot"><strong>Osti</strong> - Déformation du blasphème "esti".</div>
-      <div class="mot"><strong>Ouach</strong> - Exclamation de dégoût.</div>
-      <div class="mot"><strong>Overtime</strong> - Surtemps au travail.</div>
-    </div>
+  <div class="lettre-section" id="O">
+    <div class="lettre-titre">O</div>
+    <div class="lettre-desc">Quinzième lettre de l'alphabet.</div>
+    <div class="mot"><strong>Officiel</strong> - Validation d'une action. EX : « Je vais te crisser une volée, c'est officiel! »</div>
+    <div class="mot"><strong>Opener</strong> - Ouvre-bouteille ou décapsuleur.</div>
+    <div class="mot"><strong>Ostination</strong> - Déformation de "obstination".</div>
+    <div class="mot"><strong>Osti</strong> - Déformation du blasphème "esti".</div>
+    <div class="mot"><strong>Ouach</strong> - Exclamation de dégoût.</div>
+    <div class="mot"><strong>Overtime</strong> - Surtemps au travail.</div>
+  </div>
 
-    <!-- P -->
-    <div class="lettre-section" id="P">
-      <div class="lettre-titre">P</div>
-      <div class="lettre-desc">Seizième lettre de l'alphabet.</div>
-      <div class="mot"><strong>Pac sac</strong> - Sac à dos.</div>
-      <div class="mot"><strong>Pacté</strong> - Saoul. EX : « Maudit que j'étais pacté... »</div>
-      <div class="mot"><strong>Parle-mentsonger</strong> (v.) — Le paulétichien parle de cette manière : alors il parle, ment en y songeant. Seul ce métier permet de parle-mentsonger, sauf anciennement les dentistes du temps qu'on les nommait "les arracheurs de dents" : "Ça fera pas mal..."</div>
-      <div class="mot"><strong>Patente</strong> - Objet quelconque dont on ignore le nom exact.</div>
-      <div class="mot"><strong>Pépine</strong> - Une rétrocaveuse.</div>
-      <div class="mot"><strong>Piasse</strong> - Dollar.</div>
-      <div class="mot"><strong>Pick</strong> - Onglet pour jouer de la guitare.</div>
-      <div class="mot"><strong>Picosser</strong> - Taquiner ou déranger quelqu'un.</div>
-      <div class="mot"><strong>Pinchnut</strong> - Jeu d'enfance; faire avancer des jetons avec l'index.</div>
-      <div class="mot"><strong>Pioche</strong> - Outil de jardinage; personne insignifiante ou conasse.</div>
-      <div class="mot"><strong>Pis</strong> - Remplace "et puis". EX : « Laisse-moi ton fric pis je vais t'acheter ça. »</div>
-      <div class="mot"><strong>Pissette</strong> - Désigne le pénis enfantinement.</div>
-      <div class="mot"><strong>Plotte</strong> - Très vulgairement, demoiselle provocante; peut aussi désigner l'organe reproducteur féminin.</div>
-      <div class="mot"><strong>Poche</strong> - Compartiment de rangement sur pantalon; ou engin reproducteur masculin.</div>
-      <div class="mot"><strong>Poupounne</strong> - Jolie femme un peu enrobée.</div>
-      <div class="mot"><strong>Prépulcer</strong> (v.) — Action de lancer ou propulser violemment du prépuce en 3 actions : atchoummer en se pétant la tête sur le comptoir en lâchant une flatulence d'ascenseur.</div>
-      <div class="mot"><strong>Prostagne</strong> (n.m.) — Il branle dans le manche mais rapide quand le doigt veut le diriger où il ne désire aucunement.</div>
-      <div class="mot"><strong>P'tit / P'tite</strong> - Diminutif de petit / petite, souvent utilisé familièrement.</div>
-      <div class="mot"><strong>Psychofrénésique</strong> (adj. déterminant) — Qui se rapporte à la psychologie avec une frénésie anormale.</div>
-    </div>
+  <div class="lettre-section" id="P">
+    <div class="lettre-titre">P</div>
+    <div class="lettre-desc">Seizième lettre de l'alphabet.</div>
+    <div class="mot"><strong>Pac sac</strong> - Sac à dos.</div>
+    <div class="mot"><strong>Pacté</strong> - Saoul. EX : « Maudit que j'étais pacté... »</div>
+    <div class="mot"><strong>Patente</strong> - Objet quelconque dont on ignore le nom exact.</div>
+    <div class="mot"><strong>Pépine</strong> - Une rétrocaveuse.</div>
+    <div class="mot"><strong>Piasse</strong> - Dollar.</div>
+    <div class="mot"><strong>Pick</strong> - Onglet pour jouer de la guitare.</div>
+    <div class="mot"><strong>Picosser</strong> - Taquiner ou déranger quelqu'un.</div>
+    <div class="mot"><strong>Pinchnut</strong> - Jeu d'enfance; faire avancer des jetons avec l'index.</div>
+    <div class="mot"><strong>Pioche</strong> - Outil de jardinage; personne insignifiante ou conasse.</div>
+    <div class="mot"><strong>Pis</strong> - Remplace "et puis". EX : « Laisse-moi ton fric pis je vais t'acheter ça. »</div>
+    <div class="mot"><strong>Pissette</strong> - Désigne le pénis enfantinement.</div>
+    <div class="mot"><strong>Plotte</strong> - Très vulgairement, demoiselle provocante; peut aussi désigner l'organe reproducteur féminin.</div>
+    <div class="mot"><strong>Poche</strong> - Compartiment de rangement sur pantalon; ou engin reproducteur masculin.</div>
+    <div class="mot"><strong>Poupounne</strong> - Jolie femme un peu enrobée.</div>
+    <div class="mot"><strong>P'tit / P'tite</strong> - Diminutif de petit / petite, souvent utilisé familièrement.</div>
+  </div>
 
-    <!-- Q -->
-    <div class="lettre-section" id="Q">
-      <div class="lettre-titre">Q</div>
-      <div class="lettre-desc">Dix-septième lettre de l'alphabet. Québec commence par du Q et finit par un bec.</div>
-      <div class="mot"><strong>Quêteux</strong> - Désigne un mendiant ou clochard.</div>
-      <div class="mot"><strong>Queke</strong> - Diminutif de "quelque".</div>
-      <div class="mot"><strong>Quilles</strong> - Jeu de bowling.</div>
-    </div>
+  <div class="lettre-section" id="Q">
+    <div class="lettre-titre">Q</div>
+    <div class="lettre-desc">Dix-septième lettre de l'alphabet. Québec commence par du Q et finit par un bec.</div>
+    <div class="mot"><strong>Quêteux</strong> - Désigne un mendiant ou clochard.</div>
+    <div class="mot"><strong>Queke</strong> - Diminutif de "quelque".</div>
+    <div class="mot"><strong>Quilles</strong> - Jeu de bowling.</div>
+  </div>
 
-    <!-- R -->
-    <div class="lettre-section" id="R">
-      <div class="lettre-titre">R</div>
-      <div class="lettre-desc">Dix-huitième lettre de ce foutu alphabet.</div>
-      <div class="mot"><strong>Raboudiner</strong> - Réparer grossièrement ou rafistoler un objet quelconque.</div>
-      <div class="mot"><strong>Rack</strong> - Support pour objet. EX : Un rack à bicyclette.</div>
-      <div class="mot"><strong>Raqué</strong> - Éreinté, épuisé ou en courbature.</div>
-      <div class="mot"><strong>Rasouillage</strong> - Action de se raser.</div>
-      <div class="mot"><strong>Rat</strong> - Individu qui vole, gêne ou fait des promesses sans les tenir.</div>
-      <div class="mot"><strong>Rectumtification</strong> (n.f.) — Action de corriger une erreur par la voie la plus basse possible. Synonyme de mise au point intestinale. S'emploie quand une rectification ordinaire manquerait de profondeur.</div>
-      <div class="mot"><strong>Rèque d'homme</strong> (n.m.) — Issue du recteur et de son rectum, il s'échappe sans consentement.</div>
-      <div class="mot"><strong>Rote</strong> - Rot déformé, parfois muet; ou flatulence qu'on doit laisser sortir.</div>
-      <div class="mot"><strong>Roulotte</strong> - Caravane pour camping.</div>
-    </div>
+  <div class="lettre-section" id="R">
+    <div class="lettre-titre">R</div>
+    <div class="lettre-desc">Dix-huitième lettre de ce foutu alphabet.</div>
+    <div class="mot"><strong>Raboudiner</strong> - Réparer grossièrement ou rafistoler un objet quelconque.</div>
+    <div class="mot"><strong>Rack</strong> - Support pour objet. EX : Un rack à bicyclette.</div>
+    <div class="mot"><strong>Raqué</strong> - Éreinté, épuisé ou en courbature.</div>
+    <div class="mot"><strong>Rasouillage</strong> - Action de se raser.</div>
+    <div class="mot"><strong>Rat</strong> - Individu qui vole, gêne ou fait des promesses sans les tenir.</div>
+    <div class="mot"><strong>Rote</strong> - Rot déformé, parfois muet; ou flatulence qu'on doit laisser sortir.</div>
+    <div class="mot"><strong>Roulotte</strong> - Caravane pour camping.</div>
+  </div>
 
-    <!-- S -->
-    <div class="lettre-section" id="S">
-      <div class="lettre-titre">S</div>
-      <div class="lettre-desc">Dix-neuvième lettre de l'alphabet, ça glisse en crisse. Ssssss...</div>
-      <div class="mot"><strong>Sabler</strong> - Poncer le bois.</div>
-      <div class="mot"><strong>Safe</strong> - Sûr et sans risque.</div>
-      <div class="mot"><strong>Saucette</strong> - Courte baignade pour se rafraîchir; ou petite visite prompte.</div>
-      <div class="mot"><strong>Scathophaga bongarsius Phrenssicius!</strong> (n.f.) — La mouche domestique qui se pose sur un bon gars. La cousine d'entre les deux fesses de la mouche à marde.</div>
-      <div class="mot"><strong>Scèner</strong> - Flâner en reluquant hypocritement.</div>
-      <div class="mot"><strong>Shart</strong> - Le pet collant, nommé en français le Pet-sauce.</div>
-      <div class="mot"><strong>Shit</strong> - De la marde. EX : « Ohhh shit!!! Ça put la marde icitte!!! »</div>
-      <div class="mot"><strong>Skidoo</strong> - Motoneige, nom du premier véhicule de ce genre développé par Armand Bombardier.</div>
-      <div class="mot"><strong>Souper</strong> - Repas du soir.</div>
-      <div class="mot"><strong>St</strong> - En avant d'un blasphème, le rend plus crédible. EX : St-sacrement.</div>
-      <div class="mot"><strong>Stoole</strong> - Mouchard ou rapporteur.</div>
-    </div>
+  <div class="lettre-section" id="S">
+    <div class="lettre-titre">S</div>
+    <div class="lettre-desc">Dix-neuvième lettre de l'alphabet, ça glisse en crisse. Ssssss...</div>
+    <div class="mot"><strong>Sabler</strong> - Poncer le bois.</div>
+    <div class="mot"><strong>Safe</strong> - Sûr et sans risque.</div>
+    <div class="mot"><strong>Saucette</strong> - Courte baignade pour se rafraîchir; ou petite visite prompte.</div>
+    <div class="mot"><strong>Scèner</strong> - Flâner en reluquant hypocritement.</div>
+    <div class="mot"><strong>Shart</strong> - Le pet collant, nommé en français le Pet-sauce.</div>
+    <div class="mot"><strong>Shit</strong> - De la marde. EX : « Ohhh shit!!! Ça put la marde icitte!!! »</div>
+    <div class="mot"><strong>Skidoo</strong> - Motoneige, nom du premier véhicule de ce genre développé par Armand Bombardier.</div>
+    <div class="mot"><strong>Souper</strong> - Repas du soir.</div>
+    <div class="mot"><strong>St</strong> - En avant d'un blasphème, le rend plus crédible. EX : St-sacrement.</div>
+    <div class="mot"><strong>Stoole</strong> - Mouchard ou rapporteur.</div>
+  </div>
 
-    <!-- T -->
-    <div class="lettre-section" id="T">
-      <div class="lettre-titre">T</div>
-      <div class="lettre-desc">Vingtième lettre de l'alphabet. Tabarnouche qu'elle est longue cette dernière!!!</div>
-      <div class="mot"><strong>Tabarnac [tabarnak]</strong> - Vient du Saint tabernacle. GROS juron, le plus connu de tous. EX : Le tabarnak va en manger un tabarnak de fessée.</div>
-      <div class="mot"><strong>Tabarnouche</strong> - Le tabarnak en moins vulgaire.</div>
-      <div class="mot"><strong>Tabarouette</strong> - Dérivé du blasphème Tabarnak en beaucoup moins vulgaire.</div>
-      <div class="mot"><strong>Tannant</strong> - Se dit d'un enfant espiègle ou d'une personne bruyante. EX : « Il me tape sur les nerfs, il est tannant! »</div>
-      <div class="mot"><strong>Tarla</strong> - Personne insignifiante, un con.</div>
-      <div class="mot"><strong>Têtage</strong> - Perte de temps considérable. EX : « Pourquoi faire la vaisselle, nous allons la salir demain, que de têtage! »</div>
-      <div class="mot"><strong>Têteux</strong> - Celui qui fait du têtage, qui liche. EX : « Non je te prête pas de fric, que tu es têteux!! »</div>
-      <div class="mot"><strong>Toton</strong> - Vulgairement le sein de la femme; ou individu qui est poche, twit et tarla.</div>
-      <div class="mot"><strong>Twit</strong> - Se rapportant au tarla, de même nature.</div>
-    </div>
+  <div class="lettre-section" id="T">
+    <div class="lettre-titre">T</div>
+    <div class="lettre-desc">Vingtième lettre de l'alphabet. Tabarnouche qu'elle est longue cette dernière!!!</div>
+    <div class="mot"><strong>Tabarnac [tabarnak]</strong> - Vient du Saint tabernacle. GROS juron, le plus connu de tous. EX : Le tabarnak va en manger un tabarnak de fessée.</div>
+    <div class="mot"><strong>Tabarnouche</strong> - Le tabarnak en moins vulgaire.</div>
+    <div class="mot"><strong>Tabarouette</strong> - Dérivé du blasphème Tabarnak en beaucoup moins vulgaire.</div>
+    <div class="mot"><strong>Tannant</strong> - Se dit d'un enfant espiègle ou d'une personne bruyante. EX : « Il me tape sur les nerfs, il est tannant! »</div>
+    <div class="mot"><strong>Tarla</strong> - Personne insignifiante, un con.</div>
+    <div class="mot"><strong>Têtage</strong> - Perte de temps considérable. EX : « Pourquoi faire la vaisselle, nous allons la salir demain, que de têtage! »</div>
+    <div class="mot"><strong>Têteux</strong> - Celui qui fait du têtage, qui liche. EX : « Non je te prête pas de fric, que tu es têteux!! »</div>
+    <div class="mot"><strong>Toton</strong> - Vulgairement le sein de la femme; ou individu qui est poche, twit et tarla.</div>
+    <div class="mot"><strong>Twit</strong> - Se rapportant au tarla, de même nature.</div>
+  </div>
 
-    <!-- U -->
-    <div class="lettre-section" id="U">
-      <div class="lettre-titre">U</div>
-      <div class="lettre-desc">Vingt-et-unième lettre de l'alphabet. Sans ce U, le Q serait isolé, le pauvre.</div>
-      <div class="mot"><strong>Unicervelle</strong> (adj.) — Se dit d'une chose, d'une idée ou d'un ensemble de mots-clés qui partagent une seule et même cervelle cohérente. À ne pas confondre avec "unanime", qui suppose plusieurs cervelles d'accord; l'unicervelle, elle, n'en a qu'une pour tout l'monde.</div>
-      <div class="mot"><strong>Urinoir</strong> - Appareil sanitaire masculin mural.</div>
-      <div class="mot"><strong>Usagé</strong> - D'occasion. EX : « Ton automobile est usagée, la mienne est neuve. »</div>
-    </div>
+  <div class="lettre-section" id="U">
+    <div class="lettre-titre">U</div>
+    <div class="lettre-desc">Vingt-et-unième lettre de l'alphabet. Sans ce U, le Q serait isolé, le pauvre.</div>
+    <div class="mot"><strong>Urinoir</strong> - Appareil sanitaire masculin mural.</div>
+    <div class="mot"><strong>Usagé</strong> - D'occasion. EX : « Ton automobile est usagée, la mienne est neuve. »</div>
+  </div>
 
-    <!-- V -->
-    <div class="lettre-section" id="V">
-      <div class="lettre-titre">V</div>
-      <div class="lettre-desc">Vingt-deuxième lettre de l'alphabet. Viiite, laissez-moi la salle-de-bain!</div>
-      <div class="mot"><strong>Va chier</strong> - Aller se faire voir.</div>
-      <div class="mot"><strong>Vacher</strong> - Paresser, ne rien faire du tout.</div>
-      <div class="mot"><strong>Verbier</strong> (n.m.) — Action de gerber des mots, parler pour rien dire, dégobiller du verbiage.</div>
-      <div class="mot"><strong>Vidanges</strong> - Tout objet bon pour la poubelle. EX : « Sors les vidanges, le camion arrive. »</div>
-      <div class="mot"><strong>Vintheure</strong> (n.f.) — Heure bénie où le vin devient une obligation morale et sociale. Se situe généralement vers les 20h mais peut être devancée selon les besoins thérapeutiques de la journée.</div>
-      <div class="mot"><strong>Violentaire</strong> ¹(v.c.c.) — Se dit d'une violence inuite (non, aucune appropriation culturelle) avec la volonté de ne pas se taire. ¹ Verbe Con et Complémentaire.</div>
-      <div class="mot"><strong>Visou</strong> - Avoir de l'oeil, bien mirer la cible.</div>
-      <div class="mot"><strong>Voui</strong> - Oui coquin ou timide.</div>
-      <div class="mot"><strong>Voyage</strong> - « En avoir plein son voyage » = WOW LÀ!! On se calme le pompon!</div>
-      <div class="mot"><strong>Vulvegaire</strong> (adj.) — Se dit d'une vulgarité désobligeante enfantine mais adultaire si publiée sur le Ouèbe.</div>
-    </div>
+  <div class="lettre-section" id="V">
+    <div class="lettre-titre">V</div>
+    <div class="lettre-desc">Vingt-deuxième lettre de l'alphabet. Viiite, laissez-moi la salle-de-bain!</div>
+    <div class="mot"><strong>Va chier</strong> - Aller se faire voir.</div>
+    <div class="mot"><strong>Vacher</strong> - Paresser, ne rien faire du tout.</div>
+    <div class="mot"><strong>Vidanges</strong> - Tout objet bon pour la poubelle. EX : « Sors les vidanges, le camion arrive. »</div>
+    <div class="mot"><strong>Visou</strong> - Avoir de l'oeil, bien mirer la cible.</div>
+    <div class="mot"><strong>Voui</strong> - Oui coquin ou timide.</div>
+    <div class="mot"><strong>Voyage</strong> - « En avoir plein son voyage » = WOW LÀ!! On se calme le pompon!</div>
+  </div>
 
-    <!-- W -->
-    <div class="lettre-section" id="W">
-      <div class="lettre-titre">W</div>
-      <div class="lettre-desc">Vingt-troisième lettre de l'alphabet. Compte triple au scrabble.</div>
-      <div class="mot"><strong>Waiter</strong> - Serveur dans un bar ou bistro.</div>
-      <div class="mot"><strong>Watcher</strong> - Surveiller. EX : « Heille! Watch le char, c'est une Lamborghini. »</div>
-      <div class="mot"><strong>Wow!</strong> - La fin est proche... du dictionnaire.</div>
-    </div>
+  <div class="lettre-section" id="W">
+    <div class="lettre-titre">W</div>
+    <div class="lettre-desc">Vingt-troisième lettre de l'alphabet. Compte triple au scrabble.</div>
+    <div class="mot"><strong>Waiter</strong> - Serveur dans un bar ou bistro.</div>
+    <div class="mot"><strong>Watcher</strong> - Surveiller. EX : « Heille! Watch le char, c'est une Lamborghini. »</div>
+    <div class="mot"><strong>Wow!</strong> - La fin est proche... du dictionnaire.</div>
+  </div>
 
-    <!-- X -->
-    <div class="lettre-section" id="X">
-      <div class="lettre-titre">X</div>
-      <div class="lettre-desc">Vingt-quatrième lettre de l'alphabet. Peut signifier la signature d'un analphabète.</div>
-      <div class="mot"><strong>XXX</strong> - Beaux becs tendres... ou internationalement, la porno.</div>
-      <div class="mot"><strong>XOX</strong> - Un bec, un câlin et un autre bec.</div>
-    </div>
+  <div class="lettre-section" id="X">
+    <div class="lettre-titre">X</div>
+    <div class="lettre-desc">Vingt-quatrième lettre de l'alphabet. Peut signifier la signature d'un analphabète.</div>
+    <div class="mot"><strong>XXX</strong> - Beaux becs tendres... ou internationalement, la porno.</div>
+    <div class="mot"><strong>XOX</strong> - Un bec, un câlin et un autre bec.</div>
+  </div>
 
-    <!-- Y -->
-    <div class="lettre-section" id="Y">
-      <div class="lettre-titre">Y</div>
-      <div class="lettre-desc">Vingt-cinquième lettre de l'alphabet. Utilisé comme pronom, remplace le IL et ILS.</div>
-      <div class="mot"><strong>Yaa</strong> - Oui, tout comme le Yes emprunté de l'anglais.</div>
-    </div>
+  <div class="lettre-section" id="Y">
+    <div class="lettre-titre">Y</div>
+    <div class="lettre-desc">Vingt-cinquième lettre de l'alphabet. Utilisé comme pronom, remplace le IL et ILS.</div>
+    <div class="mot"><strong>Yaa</strong> - Oui, tout comme le Yes emprunté de l'anglais.</div>
+  </div>
 
-    <!-- Z -->
-    <div class="lettre-section" id="Z">
-      <div class="lettre-titre">Z</div>
-      <div class="lettre-desc">Vingt-sixième lettre de l'alphabet et la dernière. Hé hé!</div>
-      <div class="mot"><strong>Zézette</strong> - Automobile compacte dont le propriétaire investit de l'argent dessus comme si c'était une fusée.</div>
-      <div class="mot"><strong>Zouf</strong> - Lent d'esprit, peut également désigner un fou ou malade mental.</div>
-      <div class="mot"><strong>ZoupelaÏe</strong> — Le cri primal du vieux qui se déplie le matin! 😄</div>
-      <div class="mot"><strong>ZUT</strong> - C'est la fin... Merci!</div>
-    </div>
+  <div class="lettre-section" id="Z">
+    <div class="lettre-titre">Z</div>
+    <div class="lettre-desc">Vingt-sixième lettre de l'alphabet et la dernière. Hé hé!</div>
+    <div class="mot"><strong>Zézette</strong> - Automobile compacte dont le propriétaire investit de l'argent dessus comme si c'était une fusée.</div>
+    <div class="mot"><strong>Zouf</strong> - Lent d'esprit, peut également désigner un fou ou malade mental.</div>
+    <div class="mot"><strong>ZUT</strong> - C'est la fin... Merci!</div>
+  </div>
 
-  </main>
-  <footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique. <a href="../index.html">Retour à l'accueil</a></footer>
+</main>
+<footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique. <a href="../index.html">Retour à l'accueil</a></footer>
+<script>
+(function() {
+  const canvas = document.getElementById('etoiles');
+  const ctx = canvas.getContext('2d');
+  let etoiles = [];
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  function initEtoiles() {
+    etoiles = [];
+    for (let i = 0; i < 180; i++) {
+      etoiles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.2+0.2, alpha: Math.random()*0.7+0.1, vitesse: Math.random()*0.4+0.1, dir: Math.random()>0.5?1:-1 });
+    }
+  }
+  function dessiner() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    etoiles.forEach(e => {
+      e.alpha += 0.003 * e.dir * e.vitesse;
+      if (e.alpha > 0.85 || e.alpha < 0.05) e.dir *= -1;
+      ctx.beginPath();
+      ctx.arc(e.x, e.y, e.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(200,215,255,' + e.alpha + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(dessiner);
+  }
+  resize(); initEtoiles(); dessiner();
+  window.addEventListener('resize', () => { resize(); initEtoiles(); });
+})();
+</script>
 </body>
 </html>
