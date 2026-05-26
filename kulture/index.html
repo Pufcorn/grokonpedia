@@ -29,6 +29,14 @@
 <main>
   <h1>Kulture Kebekoise</h1>
 
+  <div class="sous-section">Mesures – L'impérial-métrique québécois</div>
+
+  <div class="entree">
+    <h2>Nous vivons dans un système hybride unique au Québec</h2>
+    <p>La planche: impérial. La piscine: Fahrenheit. La route: km/h. La météo: Celsius. Le bébé qui naît: livres et onces. Le même bébé à l'école: apprend en kilogrammes.</p>
+    <p>Un Québécois de souche navigue naturellement entre deux systèmes de mesure sans jamais se poser de questions. C'est notre particularité métrologiquement inclassable.</p>
+  </div>
+
   <div class="sous-section">Nourriture plus ou moins comestible</div>
 
   <div class="entree">
@@ -50,11 +58,39 @@
     <p>La canadianisation de l'appropriation culturelle est en débat sur ce mets Québécois depuis des années...</p>
   </div>
 
+  <div class="entree">
+    <h2>4. Touski</h2>
+    <p>Tout ce qui reste dans le réfrigérateur, un ramassis cuisiné à la hâte que si vous trouvez appétissant, veuillez vérifier ce qui restait avant la cuisson pour pouvoir reproduire semblable.</p>
+  </div>
+
+  <div class="entree">
+    <h2>5. Gibelotte</h2>
+    <p>Rassemblement d'aliments pas nécessairement agréables ensemble mais dit «qui goûte la chiotte mais bourrés de vitamines et protéines».</p>
+  </div>
+
+  <div class="entree">
+    <h2>6. Krikouis</h2>
+    <p>Semblant de la gibelotte mais très improvisé, semble insalubre, inmangeable mais tout de même satisfaisant quand on a l'estomac dans les talons.</p>
+    <p><em>Tu fais quoi à bouffer? Di krikouis mais je ne crois pas que tu vas en rafoler...</em></p>
+  </div>
+
+  <div class="entree">
+    <h2>7. Le Crastillon du Chef Groleau</h2>
+    <p>Le Chef Groleau est un personnage fictif créé en 1987 pour la télévision par l'humoriste, animateur et comédien québécois Bruno Landry de la formation Rock et Belles Oreilles. Son plat, le crastillon, est une bouillie brune à l'allure répugnante. Le Chef Groleau est le promoteur d'une cuisine folklorique qui ne recherche pas la subtilité. Il ne prépare pas toujours des plats ragoûtants, mais sa mission consiste à remettre la «nourriture» de «chez nous» au (dé)goût du jour.</p>
+    <p>La recette consiste en la barge de molasse, une plottée de couliche bien chaudiérée de Crastillon, une motte d'astourne, de la sacksteinberg full de gigouane, de la spinouche à couliche en rameutant le cossin, le resuinter, le maloucher de badoinau coulis d'astourne pour la barouetter en masse en le picossant de roublette, de pourane et de gigouane. Assez simple comme recette!</p>
+  </div>
+
   <div class="sous-section">Habillement – vêtement</div>
 
   <div class="entree">
     <h2>Automne</h2>
     <p>La veste de chasse carottée rouge, verte ou bleue est un summum pour aller au chalet ou au camp de chasse avec les bottes à capes ou les bottes de pime sans oublier une calotte de baseball ou un casque de poils ou la traditionnelle tuque à pompon avec bien sûr les jeans comme pantalons avec des gants de travail et vous avez le typique québécois dans l'bois. Tire-toé une bûche asteurs l'bûceron sans H.</p>
+  </div>
+
+  <div class="entree">
+    <h2>Comme la chienne à Jacques</h2>
+    <p>S'habiller en tarla du fond d'un rang dont peu de gens passent ou pour aller dans le fond des bois se perdre. C'est typique de plusieurs gens sans goûts vestimentaires ou des goûts très très discutables.</p>
+    <p><em>Pourquoi té habillé comme la chienne à Jacques? Des pantalons de jogging en ratine avec un short par-dessus avec des bas de laine par-dessus aussi? OUF que c'est laid!</em></p>
   </div>
 
   <div class="entree">
@@ -73,6 +109,18 @@
     <p>L'été est la saison la plus plaisante pour la plupart des gens par le beau temps, le soleil, les activités extérieures, les mouches, les taons à cheval, les maringouins, les petites mouches noires sans oublier les brûlots. Comme dans tous les pays trop développés, l'habillement se fait au gré de la température du jeans et t-shirt à la petite culotte courte ou la robe pour Madame. Plus y fait chaud, plus on fait simple.</p>
   </div>
 
+  <div class="sous-section">Habitude – tradition</div>
+
+  <div class="entree">
+    <h2>Péter au frette</h2>
+    <p>En réalité, c'est mourir d'un coup mais l'hiver, péter au frette prend un sens direct à la sonorité: un prout bien sec mais dans un costume de neige, c'est l'évacuation des vapeurs par le haut près du nez assurée.</p>
+  </div>
+
+  <div class="entree">
+    <h2>Brouer</h2>
+    <p>Le québécois boit de la broue, il broue de la broue en canette, en fût, en bouteille mais il boit sa broue comme certains boivent de la cervoise. En ces temps de brouerie (une beuverie de trop paquettés ou saoulés) l'gars qui broue se soulage la soupape à gaz en faisant des rapport de force avec sa bouche en coin qui nomme communément l'rôte de mononcle indiscret.</p>
+  </div>
+
 </main>
 <footer>© 2025 Pufcorn. Tout contenu original m'appartient. Parodie humoristique. En construction.</footer>
 <script>
@@ -82,7 +130,7 @@
   let etoiles = [];
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   function initEtoiles() {
-    etoiles = [];
+    etoiles = []
     for (let i = 0; i < 180; i++) {
       etoiles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.2+0.2, alpha: Math.random()*0.7+0.1, vitesse: Math.random()*0.4+0.1, dir: Math.random()>0.5?1:-1 });
     }
