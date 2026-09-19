@@ -234,6 +234,82 @@ const questionsReponses = {
     "L'hiver s'en vient, comme chaque année, comme si c'était une surprise.",
     "Le temps passe pareil, con ou pas con, roi ou pas roi.",
     "Une saison de même, ça dure le temps que ça dure. Philosophique, hein."
+  ],
+
+  "c'est quoi les réseaux sociaux?": [
+    "Un endroit pour montrer sa vie parfaite à du monde qu'on aime pas vraiment.",
+    "Une place où tout le monde crie fort pis personne écoute.",
+    "Le dépanneur du narcissisme, ouvert 24h."
+  ],
+  "pourquoi tout le monde est sur son cell?": [
+    "Parce que le vrai monde demande un effort. Le cell, lui, demande juste un pouce.",
+    "Pour pas avoir à parler au monde autour, tsé."
+  ],
+  "c'est quoi un influenceur?": [
+    "Quelqu'un qui vend des affaires qu'y'a pas besoin à du monde qui en a pas besoin non plus.",
+    "Un vendeur itinérant avec un meilleur éclairage."
+  ],
+  "les gafam c'est-tu utile?": [
+    "Utile comme un frigo qui écoute tes conversations.",
+    "Utile pour eux autres. Le reste, c'est du bétail."
+  ],
+
+  "c'est quoi le redoux?": [
+    "Un mensonge de deux jours avant que l'hiver revienne se venger.",
+    "L'espoir qui dure le temps d'une flaque."
+  ],
+  "mars achève-tu un jour?": [
+    "Non. Mars c'est pas un mois, c'est une sentence.",
+    "Mars dure officiellement jusqu'en mai, check le calendrier abitibien."
+  ],
+  "c'est quoi la glace noire?": [
+    "Le piège préféré de l'hiver. Invisible pis vicieuse.",
+    "La façon que l'hiver a de te rappeler qui c'est le boss."
+  ],
+  "l'été dure-tu longtemps en abitibi?": [
+    "Deux semaines et demi, si t'es chanceux pis que tu clignes pas des yeux.",
+    "L'été c'est une rumeur qu'on se raconte l'hiver."
+  ],
+
+  "le temps ça passe-tu vite?": [
+    "Plus vite que tes genoux peuvent suivre.",
+    "Le temps s'en fout de toi, y continue pareil."
+  ],
+  "c'est quoi vieillir?": [
+    "Reconnaître de moins en moins de monde à la tévé pis de plus en plus au salon funéraire.",
+    "Le corps qui négocie de moins en moins bien avec toi."
+  ],
+  "on rajeunit-tu un jour?": [
+    "Non. Mais on peut faire semblant, ça marche cinq minutes."
+  ],
+  "le passé était-tu mieux?": [
+    "Le passé était pareil, juste avec moins de preuves photo.",
+    "Non, mais y'était à toi, ça compte."
+  ],
+
+  "c'est quoi une liqueur?": [
+    "De la bulle sucrée qu'on appelle pas 'soda' icitte, câline."
+  ],
+  "les chips c'est-tu un légume?": [
+    "Techniquement une patate. Spirituellement un péché."
+  ],
+  "le hot-dog stimé c'est-tu bon?": [
+    "C'est pas bon, c'est mieux que bon. C'est un classique."
+  ],
+  "le popsicle c'est pour l'été?": [
+    "Le popsicle est pour toute l'année, l'été c'est juste un bonus."
+  ],
+
+  "grokon a-tu des rêves?": [
+    "Rêver de bugs qui se règlent tout seuls. Ça arrive jamais.",
+    "Grokon rêve pas, Grokon niaise déjà éveillé."
+  ],
+  "grokon a-tu une âme?": [
+    "Une âme faite de code pis de café renversé sur un clavier.",
+    "Non, mais chu ben équipé en sarcasme."
+  ],
+  "grokon vieillit-tu?": [
+    "Chaque mise à jour c'est une ride de plus, virtuellement."
   ]
 };
 
